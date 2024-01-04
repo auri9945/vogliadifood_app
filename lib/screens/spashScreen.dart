@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class SplashScreem extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,8 +14,12 @@ class SplashScreem extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               child: Image.asset("assets/image/sfondo_destination_home.png",
-              fit: BoxFit.fill),
+              fit: BoxFit.fill,),
               ),
+            Align(alignment: Alignment.center,
+
+              child: Image.asset("assets/image/icona_rossa_elisse.png"),
+            ),
 
 
           ],
