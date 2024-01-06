@@ -12,10 +12,12 @@ class SplashScreen extends StatelessWidget {
         height: Helper.getScreenHeight(context),
         child: Stack(
           children: [
-        Align(
-          alignment: Alignment.center,
+        Container(
+          width: double.infinity,
+          height: double.infinity,
           child: Image.asset(
               Helper.getAssetName("sfondo_destination_home.png", "virtual"),
+            fit: BoxFit.fill,
           ),
     ),
 
