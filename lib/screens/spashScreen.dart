@@ -33,17 +33,36 @@ class SplashScreen extends StatelessWidget {
             Flexible(child: Text(
         "Voglia di l'app del food che c'è sempre per te",
               textAlign: TextAlign.center,
+
             ),),
 
- //            Spacer(),
- // SizedBox(
- //              width: double.infinity,
- //              height: 50,
- //              child: ElevatedButton(
- //                onPressed: (){},child: Text("Login"),),
- //            )
-
+Spacer(),
+            SizedBox(
+ width: double.infinity,
+height: 50,
+child: ElevatedButton(
+ onPressed: (){},
+  style: TextButton.styleFrom(
+    primary: AppColors.Bianco, // Text Color
+  ),
+  child: Text("Login"),
+),
+ ),
+            Spacer(),
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: (){},
+                style: TextButton.styleFrom(
+                  primary: AppColors.Bianco, // Text Color
+                ),
+                child: Text("Crea il tuo account"),
+              ),
+            )
+            //minutaggio 15:56
           ],
+
         ),
           ))
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/utils/colors.dart';
 import './screens/spashScreen.dart';
 
 void main() {
@@ -14,9 +15,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+        primarySwatch: Colors.red,
+        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(
+          AppColors.Rosso,
+
+
+        ),
+          shape: MaterialStateProperty.all(
+              StadiumBorder(),
+          ),
+        ),
+        ),
+        textTheme: TextTheme(
+          bodyText2: TextStyle
+            (color: AppColors.Bianco,),),),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // useMaterial3: true,
+
       home: SplashScreen(),
     );
   }
