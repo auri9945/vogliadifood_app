@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/utils/colors.dart';
+import 'package:vogliadifood_app/utils/helper.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -6,22 +8,42 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-       width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: Helper.getScreenWidth(context),
+        height: Helper.getScreenHeight(context),
         child: Stack(
           children: [
-            Container(
-              height: double.infinity,
-              width: double.infinity,
-              child: Image.asset("assets/image/sfondo_destination_home.png",
-              fit: BoxFit.fill,),
-              ),
-            Align(alignment: Alignment.center,
-
-              child: Image.asset("assets/image/icona_rossa_elisse.png"),
-            ),
+        Align(
+          alignment: Alignment.center,
+          child: Image.asset(
+              Helper.getAssetName("sfondo_destination_home.png", "virtual"),
+          ),
+    ),
 
 
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            width: double.infinity,
+            height: Helper.getScreenHeight(context) * 0.3,
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: Column(
+          children: [
+            Flexible(child: Text(
+        "Voglia di l'app del food che c'è sempre per te",
+              textAlign: TextAlign.center,
+            ),),
+
+ //            Spacer(),
+ // SizedBox(
+ //              width: double.infinity,
+ //              height: 50,
+ //              child: ElevatedButton(
+ //                onPressed: (){},child: Text("Login"),),
+ //            )
+
+          ],
+        ),
+          ))
           ],
         ),
       ),
