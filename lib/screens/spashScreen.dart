@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/utils/helper.dart';
 
+import 'loginScreen.dart';
+
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -20,7 +22,10 @@ class SplashScreen extends StatelessWidget {
             fit: BoxFit.fill,
           ),
     ),
-
+        Align(
+          alignment: Alignment.center,
+          child: Image.asset("assets/image/icona_rossa_elisse.png"),
+        ),
 
         Align(
           alignment: Alignment.bottomCenter,
@@ -31,35 +36,50 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           children: [
             Flexible(child: Text(
-        "Voglia di l'app del food che c'è sempre per te",
+        "Voglia di l'app del food che c'è sempre per te. Accedi o regitrati per soddisfare le tue Vogliedì..",
               textAlign: TextAlign.center,
 
             ),),
 
-Spacer(),
+            Spacer(
+              flex: 1,
+            ),
+                        SizedBox(
+             width: double.infinity,
+            height: 50,
+            child: ElevatedButton(
+             onPressed: (){
+               Navigator.of(context)
+                   .pushReplacementNamed(LoginScreen.routeName);
+             },
+              style: TextButton.styleFrom(
+                primary: AppColors.Bianco, // Text Color
+              ),
+              child: Text("Login"),
+            ),
+             ),
             SizedBox(
- width: double.infinity,
-height: 50,
-child: ElevatedButton(
- onPressed: (){},
-  style: TextButton.styleFrom(
-    primary: AppColors.Bianco, // Text Color
-  ),
-  child: Text("Login"),
-),
- ),
-            Spacer(),
+              height: 20,
+            ),
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: (){},
-                style: TextButton.styleFrom(
-                  primary: AppColors.Bianco, // Text Color
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                  shape: MaterialStateProperty.all(
+                    StadiumBorder(
+                      side:
+                        BorderSide(color: AppColors.Bianco, width: 1.5),
+                    ),
+                  ),
                 ),
+                onPressed: (){},
                 child: Text("Crea il tuo account"),
+                ),
+
               ),
-            )
             //minutaggio 15:56
           ],
 

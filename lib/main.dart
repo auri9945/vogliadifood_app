@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/loginScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import './screens/spashScreen.dart';
 
@@ -18,12 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(
           AppColors.Rosso,
-
-
         ),
           shape: MaterialStateProperty.all(
               StadiumBorder(),
           ),
+          elevation: MaterialStateProperty.all(0),
         ),
         ),
         textTheme: TextTheme(
@@ -33,6 +33,28 @@ class MyApp extends StatelessWidget {
         // useMaterial3: true,
 
       home: SplashScreen(),
+      routes: {
+        LoginScreen.routeName: (context) => LoginScreen(),
+        //SignUpScreen.routeName: (context) => SignUpScreen(),
+        //ForgetPwScreen.routeName: (context) => ForgetPwScreen(),
+        //SendOTPScreen.routeName: (context) => SendOTPScreen(),
+        //NewPwScreen.routeName: (context) => NewPwScreen(),
+        //IntroScreen.routeName: (context) => IntroScreen(),
+        //HomeScreen.routeName: (context) => HomeScreen(),
+        //MenuScreen.routeName: (context) => MenuScreen(),
+        //OfferScreen.routeName: (context) => OfferScreen(),
+        // ProfileScreen.routeName: (context) => ProfileScreen(),
+        // MoreScreen.routeName: (context) => MoreScreen(),
+        // DessertScreen.routeName: (context) => DessertScreen(),
+        // IndividualItem.routeName: (context) => IndividualItem(),
+        // PaymentScreen.routeName: (context) => PaymentScreen(),
+        // NotificationScreen.routeName: (context) => NotificationScreen(),
+        // AboutScreen.routeName: (context) => AboutScreen(),
+        // InboxScreen.routeName: (context) => InboxScreen(),
+        // MyOrderScreen.routeName: (context) => MyOrderScreen(),
+        // CheckoutScreen.routeName: (context) => CheckoutScreen(),
+        // ChangeAddressScreen.routeName: (context) => ChangeAddressScreen(),
+      },
     );
   }
 }
