@@ -19,14 +19,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(
           AppColors.Rosso,
+
+
         ),
           shape: MaterialStateProperty.all(
               StadiumBorder(),
           ),
-          elevation: MaterialStateProperty.all(0),
         ),
         ),
         textTheme: TextTheme(
+          headline6: TextStyle(color: AppColors.Orange,fontSize: 25),
           bodyText2: TextStyle
             (color: AppColors.Bianco,),),),
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
