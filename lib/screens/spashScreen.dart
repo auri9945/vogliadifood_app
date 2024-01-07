@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/utils/helper.dart';
 
@@ -75,7 +76,10 @@ class SplashScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context)
+                      .pushReplacementNamed(SignUpScreen.routeName);
+                },
                 child: Text("Crea il tuo account"),
                 ),
 

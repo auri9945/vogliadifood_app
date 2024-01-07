@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/loginScreen.dart';
+import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import './screens/spashScreen.dart';
+import 'screens/introScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,8 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         ),
         textTheme: TextTheme(
-          headline6: TextStyle(color: AppColors.Text,fontSize: 25),
-          headline5: TextStyle(color: AppColors.Text,fontSize: 15),
+          headline6: TextStyle(color: AppColors.Bianco,fontSize: 25),
+          headline5: TextStyle(color: AppColors.Bianco,fontSize: 15),
           bodyText2: TextStyle
             (color: AppColors.Bianco,),),),
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -38,11 +40,8 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
-        //SignUpScreen.routeName: (context) => SignUpScreen(),
-        //ForgetPwScreen.routeName: (context) => ForgetPwScreen(),
-        //SendOTPScreen.routeName: (context) => SendOTPScreen(),
-        //NewPwScreen.routeName: (context) => NewPwScreen(),
-        //IntroScreen.routeName: (context) => IntroScreen(),
+        SignUpScreen.routeName: (context) => SignUpScreen(),
+        IntroScreen.routeName: (context) => IntroScreen(),
         //HomeScreen.routeName: (context) => HomeScreen(),
         //MenuScreen.routeName: (context) => MenuScreen(),
         //OfferScreen.routeName: (context) => OfferScreen(),
