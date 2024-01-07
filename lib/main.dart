@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         ),
         ),
         textTheme: TextTheme(
-          headline6: TextStyle(color: AppColors.Orange,fontSize: 25),
+          headline6: TextStyle(color: AppColors.Text,fontSize: 25),
+          headline5: TextStyle(color: AppColors.Text,fontSize: 15),
           bodyText2: TextStyle
             (color: AppColors.Bianco,),),),
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
