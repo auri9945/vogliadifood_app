@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/homeScreen.dart';
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
@@ -27,46 +28,47 @@ class IntroScreen extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 30,
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 500,
-                  ),
-                  Text(
-                    "Inizia ora a soddisfare le tue Vogliedì...",
-                    style: Helper.getTheme(context).headline5,
-                  ),
-                  SizedBox(height: 30,),
 
-                  SizedBox(
-                    width: 150,
-                    height: 50,
-                    child:
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.red),
-                        foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
-                        shape: MaterialStateProperty.all(
-                          StadiumBorder(
-                            side:
-                            BorderSide(color: AppColors.Bianco, width: 1),
-                          ),
-                        ),
-                      ),
-                      onPressed: (){},
-                      child: Text("Login"),
+            Align(
+
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 30,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 500,
                     ),
-                  ),
+                    Text(
+                      "Inizia ora a soddisfare le tue Vogliedì...",
+                      style: Helper.getTheme(context).headline5,
+                    ),
+                    SizedBox(height: 30,),
 
-
-                ],
+                    SizedBox(
+                      width: 150,
+                      height: 50,
+                      child:
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
+                          foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                        ),
+                        onPressed: (){
+                          Navigator.of(context)
+                              .pushReplacementNamed(HomeScreen.routeName);
+                        },
+                        child: Text("Prosegui >>"),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+
+
           ],
         ),
       ),

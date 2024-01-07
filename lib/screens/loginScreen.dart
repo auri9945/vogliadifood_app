@@ -3,6 +3,8 @@ import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/utils/helper.dart';
 
+import 'homeScreen.dart';
+
 class LoginScreen extends StatelessWidget {
   static const routeName = "/loginScreen";
 
@@ -25,88 +27,85 @@ class LoginScreen extends StatelessWidget {
                 Helper.getAssetName("Sfondo_app.png", "virtual"),
                 fit: BoxFit.fill,
               ),
-
             ),
-
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 30,
               ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 60,
-                ),
-                Text(
-                  "Login",
-                  style: Helper.getTheme(context).headline6,
-                ),
-
-                SizedBox(
-                    height: 10,
-                ),
-
-                Text("Inserisci i tuoi dati per accedere",
-                    style: Helper.getTheme(context).headline5
-                ),
-                SizedBox(
-                    height: 40,
-                ),
-
-                CustomTextInput(
-                  hintText: "La tua email",
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextInput(
-                  hintText: "password",
-                ),
-
-                SizedBox(
-                  height: 30,
-                ),
-
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child:
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
-                      foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
-                      shape: MaterialStateProperty.all(
-                        StadiumBorder(
-                          side:
-                          BorderSide(color: AppColors.Bianco, width: 1),
-                        ),
-                      ),
-                    ),
-                  onPressed: (){},
-                  child: Text("Login"),
-                ),
-                ),
-                
-                SizedBox(height: 30,),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.of(context)
-                        .pushReplacementNamed(SignUpScreen.routeName);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Non hai un account?",
-                      style: Helper.getTheme(context).headline5),
-                      SizedBox(width: 10,),
-                      Text("Sign up",
-                        style: TextStyle(color: AppColors.Orange, fontWeight: FontWeight.bold),),
-                    ],
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 60,
                   ),
-                )
-              ],
-            ),
+                  Text(
+                    "Login",
+                    style: Helper.getTheme(context).headline6,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("Inserisci i tuoi dati per accedere",
+                      style: Helper.getTheme(context).headline5),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  CustomTextInput(
+                    hintText: "La tua email",
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextInput(
+                    hintText: "password",
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.Rosso),
+                        foregroundColor:
+                            MaterialStateProperty.all(AppColors.Bianco),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed(HomeScreen.routeName);
+                      },
+                      child: Text("Login"),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(SignUpScreen.routeName);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Non hai un account?",
+                            style: Helper.getTheme(context).headline5),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Sign up",
+                          style: TextStyle(
+                              color: AppColors.Orange,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
@@ -116,10 +115,11 @@ class LoginScreen extends StatelessWidget {
 }
 
 class CustomTextInput extends StatelessWidget {
-   const CustomTextInput({
+  const CustomTextInput({
     required String hintText,
-     Key? key,
-  }) : _hintText = hintText, super (key: key) ;
+    Key? key,
+  })  : _hintText = hintText,
+        super(key: key);
 
   final String _hintText;
 
@@ -145,5 +145,3 @@ class CustomTextInput extends StatelessWidget {
     );
   }
 }
-
-

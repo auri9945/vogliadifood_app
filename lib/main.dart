@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/homeScreen.dart';
 import 'package:vogliadifood_app/screens/loginScreen.dart';
 import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
@@ -19,30 +20,33 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.red,
-        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(
-          AppColors.Rosso,
-
-
-        ),
-          shape: MaterialStateProperty.all(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              AppColors.Rosso,
+            ),
+            shape: MaterialStateProperty.all(
               StadiumBorder(),
+            ),
           ),
         ),
-        ),
         textTheme: TextTheme(
-          headline6: TextStyle(color: AppColors.Bianco,fontSize: 25),
-          headline5: TextStyle(color: AppColors.Bianco,fontSize: 15),
-          bodyText2: TextStyle
-            (color: AppColors.Bianco,),),),
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        // useMaterial3: true,
+          headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
+          headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
+          bodyText2: TextStyle(
+            color: AppColors.Bianco,
+          ),
+        ),
+      ),
+      // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      // useMaterial3: true,
 
       home: SplashScreen(),
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),
         IntroScreen.routeName: (context) => IntroScreen(),
-        //HomeScreen.routeName: (context) => HomeScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
         //MenuScreen.routeName: (context) => MenuScreen(),
         //OfferScreen.routeName: (context) => OfferScreen(),
         // ProfileScreen.routeName: (context) => ProfileScreen(),
@@ -60,5 +64,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

@@ -94,14 +94,8 @@ class SignUpScreen extends StatelessWidget {
                     child:
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                        backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
                         foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
-                        shape: MaterialStateProperty.all(
-                          StadiumBorder(
-                            side:
-                            BorderSide(color: AppColors.Bianco, width: 1),
-                          ),
-                        ),
                       ),
                       onPressed: (){
                         Navigator.of(context)
