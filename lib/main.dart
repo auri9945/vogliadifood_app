@@ -30,12 +30,19 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor:
+            MaterialStateProperty.all(AppColors.Rosso),
+          ),
+        ),
         textTheme: TextTheme(
           headline4: TextStyle(color: AppColors.Text, fontSize: 18),
           headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
           headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
           headline3: TextStyle(color: AppColors.Bianco, fontSize:30),
           headline2: TextStyle(color: AppColors.Bianco, fontSize:12),
+          headline1: TextStyle(color: AppColors.Text, fontSize: 16),
           bodyText2: TextStyle(
             color: AppColors.Bianco,
           ),
