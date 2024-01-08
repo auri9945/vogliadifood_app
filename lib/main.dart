@@ -31,8 +31,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
+          headline4: TextStyle(color: AppColors.Text, fontSize: 18),
           headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
           headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
+          headline3: TextStyle(color: AppColors.Bianco, fontSize:30),
           bodyText2: TextStyle(
             color: AppColors.Bianco,
           ),
