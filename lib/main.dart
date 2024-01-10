@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:vogliadifood_app/screens/homeScreen.dart';
-import 'package:vogliadifood_app/screens/loginScreen.dart';
-import 'package:vogliadifood_app/screens/signUpScreen.dart';
-import 'package:vogliadifood_app/utils/colors.dart';
+
 import './screens/spashScreen.dart';
-import 'screens/introScreen.dart';
+import './screens/loginScreen.dart';
+import './screens/signUpScreen.dart';
+import './screens/introScreen.dart';
+import './screens/homeScreen.dart';
+import './screens/CategorieScreen.dart';
+import './screens/profiloScreen.dart';
+import './utils/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,10 +60,8 @@ class MyApp extends StatelessWidget {
         SignUpScreen.routeName: (context) => SignUpScreen(),
         IntroScreen.routeName: (context) => IntroScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
-        //MenuScreen.routeName: (context) => MenuScreen(),
-        //OfferScreen.routeName: (context) => OfferScreen(),
-        // ProfileScreen.routeName: (context) => ProfileScreen(),
-        // MoreScreen.routeName: (context) => MoreScreen(),
+        CategorieScreen.routeName: (context) => CategorieScreen(),
+        ProfiloScreen.routeName: (context) => ProfiloScreen(),
         // DessertScreen.routeName: (context) => DessertScreen(),
         // IndividualItem.routeName: (context) => IndividualItem(),
         // PaymentScreen.routeName: (context) => PaymentScreen(),

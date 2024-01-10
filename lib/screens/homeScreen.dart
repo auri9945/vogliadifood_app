@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vogliadifood_app/utils/colors.dart';
-import 'package:vogliadifood_app/widget/CustomNavbar.dart';
+import '../utils/colors.dart';
+import '../widget/CustomNavbar.dart';
 import '../utils/helper.dart';
 
 class HomeScreen extends StatelessWidget {

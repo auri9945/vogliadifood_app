@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:vogliadifood_app/utils/colors.dart';
-import 'package:vogliadifood_app/utils/helper.dart';
+import '../screens/CategorieScreen.dart';
+import '../screens/homeScreen.dart';
+import '../screens/profiloScreen.dart';
+import '../utils/colors.dart';
+import '../utils/helper.dart';
 
 //7:44
 
-class CustomNavbar extends StatefulWidget {
-  @override
-  State<CustomNavbar> createState() => _CustomNavbarState();
-}
+class CustomNavbar extends StatelessWidget {
+   final bool categorie;
+   final bool home;
+   final bool profilo;
 
-class _CustomNavbarState extends State<CustomNavbar> {
+  const CustomNavbar({
+    Key? key,
+    this.categorie=false,
+    this.home=false,
+    this.profilo=false});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,29 +34,50 @@ class _CustomNavbarState extends State<CustomNavbar> {
            Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: [
-            Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(Helper.getAssetName("categorie.png", "virtual"),),
-              // Text("Categorie",
-              //   style: Helper.getTheme(context).headline1,),
-            ],
-          ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(Helper.getAssetName("home_filled.png", "virtual"),),
-              //   Text("Home",
-              //     style: Helper.getTheme(context).headline1,),
-              ],
+             GestureDetector(
+               onTap: (){
+                 if(!categorie) {
+                   Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                 }
+               },
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   categorie?Image.asset(Helper.getAssetName("categorie_arancione.png", "virtual"),
+                   ):
+                     Image.asset(Helper.getAssetName("categorie.png", "virtual"),),
+                 ],
+               ),
+             ),
+            GestureDetector(
+              onTap: (){
+                if(!home ) {
+                  Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                }
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  home?Image.asset(Helper.getAssetName("home_filled.png", "virtual"),):
+                  Image.asset(Helper.getAssetName("home.png", "virtual"),),
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(Helper.getAssetName("profilo.png", "virtual"),),
-                // Text("Profilo",
-                //   style: Helper.getTheme(context).headline1,),
-              ],
+
+            GestureDetector(
+              onTap: (){
+                if(!profilo ) {
+                  Navigator.of(context).pushReplacementNamed(ProfiloScreen.routeName);
+                }
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  profilo?Image.asset(Helper.getAssetName("profilo_arancione.png", "virtual"),):
+                  Image.asset(Helper.getAssetName("profilo.png", "virtual"),),
+
+                ],
+              ),
             ),
            ],
           ),
