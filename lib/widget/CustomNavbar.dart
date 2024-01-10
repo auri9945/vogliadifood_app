@@ -13,45 +13,45 @@ class _CustomNavbarState extends State<CustomNavbar> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
+      height: 120,
       width: Helper.getScreenWidth(context),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          height: 80,
+          height: 70,
           width: Helper.getScreenWidth(context),
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 80),
           color: AppColors.Bianco,
-          child: Column(
-          children: [
+          child:
            Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: [
             Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(Helper.getAssetName("search_filled.png", "virtual"),),
-              Text("Bacheca"),
+              Image.asset(Helper.getAssetName("categorie.png", "virtual"),),
+              // Text("Categorie",
+              //   style: Helper.getTheme(context).headline1,),
             ],
           ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(Helper.getAssetName("search_filled.png", "virtual"),),
-                Text("Carrello"),
+                Image.asset(Helper.getAssetName("home_filled.png", "virtual"),),
+              //   Text("Home",
+              //     style: Helper.getTheme(context).headline1,),
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(Helper.getAssetName("search_filled.png", "virtual"),),
-                Text("Profilo"),
+                Image.asset(Helper.getAssetName("profilo.png", "virtual"),),
+                // Text("Profilo",
+                //   style: Helper.getTheme(context).headline1,),
               ],
             ),
            ],
           ),
-          ],
-         ),
         ),
       ),
     );
