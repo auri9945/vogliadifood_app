@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 
 class ProfiloScreen extends StatelessWidget {
   static const routeName = "/profiloScreen";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned(
+            bottom: 0,
+              left: 0,
+              child: CustomNavbar(
+                profilo: true,
+              ),
+          ),
+        ],
+      ),
+    );
   }
 }
