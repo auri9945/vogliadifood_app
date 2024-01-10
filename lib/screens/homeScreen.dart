@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
+import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import '../utils/helper.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +9,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Stack(
+    children: [
+      SafeArea(
         child: SingleChildScrollView(
           child: Container(
             height: Helper.getScreenHeight(context),
@@ -275,8 +278,11 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
+      Positioned(bottom:0, left:0, child: CustomNavbar()),
+    ],
+   )
+  );
+ }
 }
 
 class RistorantiPopolari extends StatelessWidget {
