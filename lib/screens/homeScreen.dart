@@ -3,6 +3,7 @@ import 'package:vogliadifood_app/widget/searchbar.dart';
 import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
 import '../utils/helper.dart';
+import '../widget/categorieVoglia.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
@@ -360,34 +361,3 @@ class RistorantiPopolari extends StatelessWidget {
   }
 }
 
-class CategiarieVoglia extends StatelessWidget {
-  const CategiarieVoglia({
-    Key? key,
-    required Image image,
-    required String name,
-  })  : _image = image,
-        _name = name,
-        super(key: key);
-
-  final String _name;
-  final Image _image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(width: 110, height: 110, child: _image),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(_name,
-            style: Helper.getTheme(context)
-                .headline2
-                ?.copyWith(color: AppColors.Bianco)),
-      ],
-    );
-  }
-}

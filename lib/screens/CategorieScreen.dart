@@ -3,6 +3,7 @@ import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 
 import '../utils/helper.dart';
+import '../widget/categorieVoglia.dart';
 
 class CategorieScreen extends StatelessWidget {
   static const routeName = "/categorieScreen";
@@ -27,6 +28,9 @@ class CategorieScreen extends StatelessWidget {
               ),
               Column(
                 children: [
+                  SizedBox(
+                    height: 40,
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -35,7 +39,7 @@ class CategorieScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Categoria",
+                          "Categorie",
                           style: Helper.getTheme(context).headline6,
                         ),
                       ],
@@ -46,8 +50,146 @@ class CategorieScreen extends StatelessWidget {
                   ),
                   SearchBarBox(),
                   SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      "Ho voglia dì..",
+                      style: Helper.getTheme(context).headline6,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 500,
+                    padding: const EdgeInsets.only(left: 30),
+                    child:Column(
+                      children: [
+                        Row(
+                            children: [
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "Ellipse_5.png",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                            ]
+                        ),
+
+                        Row(
+                            children: [
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                            ]
+                        ),
+
+                        Row(
+                            children: [
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),CategiarieVoglia(
+                                image: Image.asset(
+                                  Helper.getAssetName(
+                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                      "virtual"),
+                                  fit: BoxFit.cover,
+                                ),
+                                name: "Fast Food",
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                            ]
+                        ),
+                      ],
+                    )
+                  )
                 ],
               ),
             ]),
