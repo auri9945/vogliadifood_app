@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/widget/searchbar.dart';
 import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
 import '../utils/helper.dart';
@@ -94,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
-                      SearchBar(),
+                      SearchBarBox(),
                       SizedBox(
                         height: 20,
                       ),

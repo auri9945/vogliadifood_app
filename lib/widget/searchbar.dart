@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
-
+class SearchBarBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(

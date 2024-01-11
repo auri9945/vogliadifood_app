@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
+import 'package:vogliadifood_app/widget/searchbar.dart';
 
 import '../utils/helper.dart';
 
@@ -43,7 +44,7 @@ class CategorieScreen extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  SearchBar(),
+                  SearchBarBox(),
                   SizedBox(
                     height: 20,
                   ),
