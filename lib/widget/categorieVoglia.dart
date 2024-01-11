@@ -19,8 +19,8 @@ class CategiarieVoglia extends StatelessWidget {
     return Column(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(width: 110, height: 110, child: _image),
+          borderRadius: BorderRadius.circular(20),
+          child: Container(width: 100, height: 100, child: _image),
         ),
         SizedBox(
           height: 10,
