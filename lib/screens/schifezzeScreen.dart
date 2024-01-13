@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/screens/homeScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 
@@ -40,7 +41,9 @@ class SchifezzeScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                                    },
                                     child: Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
