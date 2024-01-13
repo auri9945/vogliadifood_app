@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 
 import './screens/spashScreen.dart';
 import './screens/loginScreen.dart';
@@ -40,12 +41,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          headline4: TextStyle(color: AppColors.Text, fontSize: 18),
-          headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
-          headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
-          headline3: TextStyle(color: AppColors.Bianco, fontSize:30),
-          headline2: TextStyle(color: AppColors.Bianco, fontSize:12),
           headline1: TextStyle(color: AppColors.Text, fontSize: 16),
+          headline2: TextStyle(color: AppColors.Bianco, fontSize:12),
+          headline3: TextStyle(color: AppColors.Bianco, fontSize:30),
+          headline4: TextStyle(color: AppColors.Text, fontSize: 18),
+          headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
+          headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
           bodyText2: TextStyle(
             color: AppColors.Bianco,
           ),
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         CategorieScreen.routeName: (context) => CategorieScreen(),
         ProfiloScreen.routeName: (context) => ProfiloScreen(),
-        // DessertScreen.routeName: (context) => DessertScreen(),
+        SchifezzeScreen.routeName: (context) => SchifezzeScreen(),
         // IndividualItem.routeName: (context) => IndividualItem(),
         // PaymentScreen.routeName: (context) => PaymentScreen(),
         // NotificationScreen.routeName: (context) => NotificationScreen(),

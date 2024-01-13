@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 
@@ -74,37 +75,54 @@ class CategorieScreen extends StatelessWidget {
                       children: [
                         Row(
                             children: [
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "Ellipse_5.png",
-                                      "virtual"),
-                                  //fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pushReplacementNamed(SchifezzeScreen.routeName);
+                                },
+                                child: CategiarieVoglia(
+                                  image: Image.asset(
+                                    Helper.getAssetName(
+                                        "Ellipse_5.png",
+                                        "virtual"),
+                                    //fit: BoxFit.cover,
+                                  ),
+                                  name: "Schifezze",
                                 ),
-                                name: "Fast Food",
                               ),
                               SizedBox(
                                 width: 15,
                               ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "Ellipse_1.png",
-                                      "virtual"),
-                                  fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pushReplacementNamed(SchifezzeScreen.routeName);
+                                },
+                                child: CategiarieVoglia(
+                                  image: Image.asset(
+                                    Helper.getAssetName(
+                                        "Ellipse_1.png",
+                                        "virtual"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  name: "Dolci",
                                 ),
-                                name: "Fast Food",
                               ),
                               SizedBox(
                                 width: 15,
-                              ),CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "Ellipse_2.png",
-                                      "virtual"),
-                                  fit: BoxFit.cover,
+                              ),
+
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pushReplacementNamed(SchifezzeScreen.routeName);
+                                },
+                                child:  CategiarieVoglia(
+                                  image: Image.asset(
+                                    Helper.getAssetName(
+                                        "Ellipse_2.png",
+                                        "virtual"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  name: "Veggie",
                                 ),
-                                name: "Fast Food",
                               ),
                             ]
                         ),
@@ -115,38 +133,53 @@ class CategorieScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 20),
                           child: Row(
                               children: [
-                                CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse 3.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse 3.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Mondo",
                                   ),
-                                  name: "Fast Food",
                                 ),
+
                                 SizedBox(
                                   width: 15,
                                 ),
-                                CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse 4.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
+
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse 4.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Salutare",
                                   ),
-                                  name: "Fast Food",
                                 ),
+
                                 SizedBox(
                                   width: 15,
-                                ),CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse_6.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  name: "Fast Food",
                                 ),
+
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse_6.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Mare",
+                                  ),
+                                ),
+
                               ]
                           ),
                         ),
@@ -155,37 +188,51 @@ class CategorieScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 20),
                           child: Row(
                               children: [
-                                CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse_7.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse_7.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Casa",
                                   ),
-                                  name: "Fast Food",
                                 ),
+
                                 SizedBox(
                                   width: 15,
                                 ),
-                                CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse_8.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
+
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse_8.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Fushion",
                                   ),
-                                  name: "Fast Food",
                                 ),
+
                                 SizedBox(
                                   width: 15,
-                                ),CategiarieVoglia(
-                                  image: Image.asset(
-                                    Helper.getAssetName(
-                                        "Ellipse_9.png",
-                                        "virtual"),
-                                    fit: BoxFit.cover,
+                                ),
+
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "Ellipse_9.png",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Gourmet",
                                   ),
-                                  name: "Fast Food",
                                 ),
                               ]
                           ),
@@ -206,6 +253,7 @@ class CategorieScreen extends StatelessWidget {
           ),
         ),
       ],
-    ));
+    ),
+    );
   }
 }

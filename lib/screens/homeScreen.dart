@@ -223,7 +223,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                         name: "la Cucaracia",
                         categoria: "Pasta",
-                        categoria2: "italiana",
                         rate: '4.5',
                       ),
                       RistorantiPopolari(
@@ -234,7 +233,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                         name: "la Zuppa",
                         categoria: "Salutare",
-                        categoria2: "Vegana",
                         rate: '4',
                       ),
                       RistorantiPopolari(
@@ -245,7 +243,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                         name: "Bowl King",
                         categoria: "Salutare",
-                        categoria2: "Orientale",
                         rate: '3.8',
                       ),
                     ],
@@ -275,18 +272,15 @@ class RistorantiPopolari extends StatelessWidget {
     required String name,
     required String rate,
     required String categoria,
-    required String categoria2,
   }) :  _image = image,
         _name = name,
         _rate = rate,
         _categoria = categoria,
-        _categoria2 = categoria2,
         super(key: key);
 
   final String _name;
   final String _rate;
   final String _categoria;
-  final String _categoria2;
   final Image _image;
 
   @override
@@ -334,10 +328,8 @@ class RistorantiPopolari extends StatelessWidget {
                         color: AppColors.Orange,
                       ),
                     ),
-                    SizedBox(width: 10,),
 
-                    Text(_categoria),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 10,),
                     Padding(
                         padding: const EdgeInsets.only(bottom: 5.0,),
                       child: Text(
@@ -348,8 +340,9 @@ class RistorantiPopolari extends StatelessWidget {
                       ),
                       ),
                     ),
-                    SizedBox(width: 5,),
-                    Text(_categoria2),
+                    SizedBox(width: 10,),
+
+                    Text(_categoria),
                   ],
                 ),
               ],
