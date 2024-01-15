@@ -104,7 +104,7 @@ class GourmetScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                     name: "Ristorante Larossa",
-                                    categoria: "Fast Food",
+                                    categoria: "Gourmet",
                                     rate: '5',
                                   ),
                                   SizedBox(
@@ -117,7 +117,7 @@ class GourmetScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                     name: "Baleno - Idea di mare",
-                                    categoria: "Fast Food",
+                                    categoria: "Gourmet",
                                     rate: '4.5',
                                   ),
 

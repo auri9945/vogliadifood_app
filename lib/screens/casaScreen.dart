@@ -54,7 +54,7 @@ class CasaScreen extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      "Casa",
+                                      "Categorie",
                                       style: Helper.getTheme(context).headline6,
                                     ),
                                   ),

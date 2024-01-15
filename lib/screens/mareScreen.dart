@@ -54,7 +54,7 @@ class MareScreen extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      "Mare",
+                                      "Categorie",
                                       style: Helper.getTheme(context).headline6,
                                     ),
                                   ),

@@ -54,7 +54,7 @@ class SalutareScreen extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      "Salutare",
+                                      "Categorie",
                                       style: Helper.getTheme(context).headline6,
                                     ),
                                   ),

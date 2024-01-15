@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/fusionScreen.dart';
 import 'package:vogliadifood_app/screens/gourmetScreen.dart';
+import 'package:vogliadifood_app/screens/mareScreen.dart';
 import 'package:vogliadifood_app/screens/mondoScreen.dart';
+import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/screens/veggieScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
@@ -158,7 +161,9 @@ class CategorieScreen extends StatelessWidget {
                                 ),
 
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(SalutareScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(
@@ -175,7 +180,9 @@ class CategorieScreen extends StatelessWidget {
                                 ),
 
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(MareScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(
@@ -196,7 +203,9 @@ class CategorieScreen extends StatelessWidget {
                           child: Row(
                               children: [
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(CasaScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(

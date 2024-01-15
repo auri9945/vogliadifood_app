@@ -104,7 +104,7 @@ class FusionScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                     name: "Poke House",
-                                    categoria: "Fast Food",
+                                    categoria: "Fushion",
                                     rate: '4.2',
                                   ),
                                   SizedBox(
@@ -117,7 +117,7 @@ class FusionScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                     name: "Ristorante Gaharu",
-                                    categoria: "Fast Food",
+                                    categoria: "Fushion",
                                     rate: '4',
                                   ),
 
