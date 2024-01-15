@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
+import 'package:vogliadifood_app/screens/fusionScreen.dart';
+import 'package:vogliadifood_app/screens/gourmetScreen.dart';
+import 'package:vogliadifood_app/screens/mondoScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
+import 'package:vogliadifood_app/screens/veggieScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 
@@ -113,7 +117,7 @@ class CategorieScreen extends StatelessWidget {
 
                               GestureDetector(
                                 onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(SchifezzeScreen.routeName);
+                                  Navigator.of(context).pushReplacementNamed(VeggieScreen.routeName);
                                 },
                                 child:  CategiarieVoglia(
                                   image: Image.asset(
@@ -135,7 +139,9 @@ class CategorieScreen extends StatelessWidget {
                           child: Row(
                               children: [
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(MondoScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(
@@ -207,7 +213,9 @@ class CategorieScreen extends StatelessWidget {
                                 ),
 
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(FusionScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(
@@ -224,7 +232,9 @@ class CategorieScreen extends StatelessWidget {
                                 ),
 
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Navigator.of(context).pushReplacementNamed(GourmetScreen.routeName);
+                                  },
                                   child: CategiarieVoglia(
                                     image: Image.asset(
                                       Helper.getAssetName(

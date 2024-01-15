@@ -7,8 +7,8 @@ import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 
-class FusionScreen extends StatelessWidget {
-  static const routeName = "/fusionScreen";
+class MondoScreen extends StatelessWidget {
+  static const routeName = "/mondoScreen";
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,9 @@ class FusionScreen extends StatelessWidget {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                                      Navigator.of(context)
+                                          .pushReplacementNamed(
+                                          CategorieScreen.routeName);
                                     },
                                     child: Icon(
                                       Icons.arrow_back_ios_rounded,
@@ -72,7 +74,7 @@ class FusionScreen extends StatelessWidget {
                             height: 250,
                             child: Image.asset(
                               Helper.getAssetName(
-                                  "vogliadifusion.jpg", "virtual"),
+                                  "vogliadimondo.jpg", "virtual"),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -82,7 +84,7 @@ class FusionScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              "I ristoranti che soddisfano la tua voglia di novità e originalità.",
+                              "Fai il giro del mondo in una sola giornata. Oggi per quale meta vuoi partire?",
                               style: Helper.getTheme(context).headline5,
                             ),
                           ),
@@ -99,28 +101,25 @@ class FusionScreen extends StatelessWidget {
                                 children: [
                                   ListaRistorantiCategorie(
                                     image: Image.asset(
-                                      Helper.getAssetName(
-                                          "poke_housefusion_salutare.jpg", "virtual"),
+                                      Helper.getAssetName("Thai Food Torino.jpg", "virtual"),
                                       fit: BoxFit.cover,
                                     ),
-                                    name: "Poke House",
-                                    categoria: "Fast Food",
-                                    rate: '4.2',
+                                    name: "Thai Food Torino",
+                                    categoria: "Ristorante",
+                                    rate: '4,7',
                                   ),
                                   SizedBox(
                                     width: 20,
                                   ),
                                   ListaRistorantiCategorie(
                                     image: Image.asset(
-                                      Helper.getAssetName(
-                                          "Gaharu_restaurant.jpg", "virtual"),
+                                      Helper.getAssetName("Legami Sushi & More..jpg", "virtual"),
                                       fit: BoxFit.cover,
                                     ),
-                                    name: "Ristorante Gaharu",
-                                    categoria: "Fast Food",
-                                    rate: '4',
+                                    name: "Legami Sushi & More",
+                                    categoria: "Ristorante",
+                                    rate: '4.2',
                                   ),
-
                                 ],
                               ),
                             ),
@@ -145,4 +144,3 @@ class FusionScreen extends StatelessWidget {
     );
   }
 }
-

@@ -7,7 +7,7 @@ import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 
-class gourmetScreen extends StatelessWidget {
+class GourmetScreen extends StatelessWidget {
   static const routeName = "/gourmetScreen";
 
   @override
@@ -82,7 +82,7 @@ class gourmetScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              "La voglia di un pasto con ingrendienti di alta qualità e grande cura nella realizzazione.",
+                              "La voglia di un pasto con ingredienti di alta qualità e grande cura nella realizzazione.",
                               style: Helper.getTheme(context).headline5,
                             ),
                           ),
