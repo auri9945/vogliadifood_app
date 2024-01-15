@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 
 import './screens/spashScreen.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
         CategorieScreen.routeName: (context) => CategorieScreen(),
         ProfiloScreen.routeName: (context) => ProfiloScreen(),
         SchifezzeScreen.routeName: (context) => SchifezzeScreen(),
+        DolciScreen.routeName: (context) => DolciScreen(),
         // IndividualItem.routeName: (context) => IndividualItem(),
         // PaymentScreen.routeName: (context) => PaymentScreen(),
         // NotificationScreen.routeName: (context) => NotificationScreen(),

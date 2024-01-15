@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
@@ -94,7 +95,7 @@ class CategorieScreen extends StatelessWidget {
                               ),
                               GestureDetector(
                                 onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(SchifezzeScreen.routeName);
+                                  Navigator.of(context).pushReplacementNamed(DolciScreen.routeName);
                                 },
                                 child: CategiarieVoglia(
                                   image: Image.asset(

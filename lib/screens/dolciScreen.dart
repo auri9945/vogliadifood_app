@@ -7,8 +7,8 @@ import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 
-class SchifezzeScreen extends StatelessWidget {
-  static const routeName = "/schifezzeScreen";
+class DolciScreen extends StatelessWidget {
+  static const routeName = "/dolciScreen";
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,9 @@ class SchifezzeScreen extends StatelessWidget {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                                      Navigator.of(context)
+                                          .pushReplacementNamed(
+                                              CategorieScreen.routeName);
                                     },
                                     child: Icon(
                                       Icons.arrow_back_ios_rounded,
@@ -72,7 +74,7 @@ class SchifezzeScreen extends StatelessWidget {
                             height: 250,
                             child: Image.asset(
                               Helper.getAssetName(
-                                  "VogliaDiSchifezze.jpg", "virtual"),
+                                  "vogliadidolce.jpg", "virtual"),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -82,7 +84,7 @@ class SchifezzeScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              "Ordina un pasto che ti migliori la giornata senza i sensi di colpa!",
+                              "Ordina un dolce che soddisfi la tua voglia di dolcezza",
                               style: Helper.getTheme(context).headline5,
                             ),
                           ),
@@ -99,28 +101,25 @@ class SchifezzeScreen extends StatelessWidget {
                                 children: [
                                   ListaRistorantiCategorie(
                                     image: Image.asset(
-                                      Helper.getAssetName(
-                                          "kfc.png", "virtual"),
+                                      Helper.getAssetName("torteria.jpg", "virtual"),
                                       fit: BoxFit.cover,
                                     ),
-                                    name: "Kfc",
-                                    categoria: "Fast Food",
-                                    rate: '4',
+                                    name: "Tartatea Torteria",
+                                    categoria: "Pasticceria",
+                                    rate: '4,5',
                                   ),
                                   SizedBox(
                                     width: 20,
                                   ),
                                   ListaRistorantiCategorie(
                                     image: Image.asset(
-                                      Helper.getAssetName(
-                                          "mc.png", "virtual"),
+                                      Helper.getAssetName("cakelab.jpg", "virtual"),
                                       fit: BoxFit.cover,
                                     ),
-                                    name: "McDonalds",
-                                    categoria: "Fast Food",
-                                    rate: '4.5',
+                                    name: "Cake Lab",
+                                    categoria: "Pasticceria",
+                                    rate: '4.9',
                                   ),
-
                                 ],
                               ),
                             ),
