@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
@@ -18,7 +20,13 @@ import './screens/CategorieScreen.dart';
 import './screens/profiloScreen.dart';
 import './utils/colors.dart';
 
-void main() {
+
+
+late Box box;
+Future<void> main() async {
+  await Hive.initFlutter();
+  Box box = await Hive.openBox('box');
+  Hive.registerAdapter(UserAccountAdapter());
   runApp(const MyApp());
 }
 
