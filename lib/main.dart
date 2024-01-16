@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
@@ -8,6 +11,7 @@ import 'package:vogliadifood_app/screens/veggieScreen.dart';
 import 'package:vogliadifood_app/screens/fusionScreen.dart';
 import 'package:vogliadifood_app/screens/gourmetScreen.dart';
 import 'package:vogliadifood_app/screens/mondoScreen.dart';
+import 'package:vogliadifood_app/model/user_account.dart';
 
 import './screens/spashScreen.dart';
 import './screens/loginScreen.dart';
@@ -18,7 +22,11 @@ import './screens/CategorieScreen.dart';
 import './screens/profiloScreen.dart';
 import './utils/colors.dart';
 
-void main() {
+
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 

@@ -72,7 +72,7 @@ class SchifezzeScreen extends StatelessWidget {
                             height: 250,
                             child: Image.asset(
                               Helper.getAssetName(
-                                  "VogliaDiSchifezze.jpg", "virtual"),
+                                  "vogliadischifezze.jpg", "virtual"),
                               fit: BoxFit.fill,
                             ),
                           ),
