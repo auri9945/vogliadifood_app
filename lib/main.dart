@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive_flutter/adapters.dart';
+// import 'package:hive/hive.dart';
+// import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:hive_flutter/adapters.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
+import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/screens/veggieScreen.dart';
@@ -26,7 +28,7 @@ import './utils/colors.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
+  //await Hive.initFlutter();
   runApp(const MyApp());
 }
 
@@ -88,7 +90,9 @@ class MyApp extends StatelessWidget {
         MareScreen.routeName: (context) => MareScreen(),
         SalutareScreen.routeName: (context) => SalutareScreen(),
         CasaScreen.routeName: (context) => CasaScreen(),
-        // IndividualItem.routeName: (context) => IndividualItem(),
+        IndividualItem.routeName: (context) => IndividualItem(),
+        ProfiloScreen.routeName: (context) => ProfiloScreen(),
+        RiepilogoScreen.routeName: (context) => RiepilogoScreen(),
         // PaymentScreen.routeName: (context) => PaymentScreen(),
         // NotificationScreen.routeName: (context) => NotificationScreen(),
         // AboutScreen.routeName: (context) => AboutScreen(),

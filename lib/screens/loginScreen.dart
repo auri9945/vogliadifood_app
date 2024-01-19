@@ -19,10 +19,6 @@ class LoginScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: double.infinity,
-              // padding: const EdgeInsets.symmetric(
-              //   horizontal: 20,
-              //   vertical: 30,
-              // ),
               child: Image.asset(
                 Helper.getAssetName("Sfondo_app.png", "virtual"),
                 fit: BoxFit.fill,
@@ -126,7 +122,7 @@ class CustomTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 350,
       height: 50,
       decoration: ShapeDecoration(
         color: AppColors.Bianco,

@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vogliadifood_app/widget/CustomNavbar.dart';
+import 'package:vogliadifood_app/screens/idividualItem.dart';
+import 'package:vogliadifood_app/widget/rigaProdotti.dart';
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
+import '../widget/CustomNavbar.dart';
 import 'CategorieScreen.dart';
-import 'loginScreen.dart';
 
-class ProfiloScreen extends StatelessWidget {
-  static const routeName = "/profiloScreen";
+class RiepilogoScreen extends StatelessWidget {
+  static const routeName = "/riepilogoScreen";
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +23,14 @@ class ProfiloScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        child: Image.asset(
-                          Helper.getAssetName("Sfondo_app2.png", "virtual"),
-                          fit: BoxFit.cover,
-                        ),
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image.asset(
+                        Helper.getAssetName("Sfondo_app2.png", "virtual"),
+                        fit: BoxFit.fill,
+                      ),
                     ),
+
                     SingleChildScrollView(
                       child: Column(
                         children: [
@@ -39,9 +42,18 @@ class ProfiloScreen extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_back_ios_rounded,
+                                      color: AppColors.Bianco,
+                                    ),
+                                  ),
                                   Expanded(
                                     child: Text(
-                                      "Profilo",
+                                      "Back",
                                       style: Helper.getTheme(context).headline6,
                                     ),
                                   ),
@@ -54,40 +66,25 @@ class ProfiloScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 50,
                           ),
                           Container(
-                            child: Text("Ciao Marino!",
+                            child:
+                            Text("Riepilogo ordine",
                               style: Helper.getTheme(context).headline3,
                             ),
                           ),
+
                           SizedBox(
-                            height: 40,
+                            height: 50,
                           ),
-                          CustomTextInput(
-                            hintText: 'nome',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          CustomTextInput(
-                            hintText: 'Cognome',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          CustomTextInput(
-                            hintText: 'Email',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          CustomTextInput(
-                            hintText: 'Indirizzo',
+                          RigaProdotti(
+                            prodotto: "pizza",
+                            numero: "2",
                           ),
 
                           SizedBox(
-                            height: 30,
+                            height: 50,
                           ),
 
                           Container(
@@ -95,42 +92,14 @@ class ProfiloScreen extends StatelessWidget {
                             width: 200,
                             child: ElevatedButton(
                               style: ButtonStyle(
-
                               ),
                               onPressed: (){},
+
                               child:
-                              Text("Aggiorna profilo",
-                              style: Helper.getTheme(context).headline5,),
-                            ),
-                          ),
-
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          Text("or",
-                            style: Helper.getTheme(context).headline5,
-                          ),
-
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          Container(
-                            height: 50,
-                            width: 200,
-                            child: ElevatedButton(
-                              onPressed: (){},
-                              child:
-                              Text("Logout",
+                              Text("Procedi al pagamento",
                                 style: Helper.getTheme(context).headline5,),
                             ),
                           ),
-
-
-
-
-
                         ],
                       ),
                     ),
@@ -138,12 +107,15 @@ class ProfiloScreen extends StatelessWidget {
                 ),
               ),
           ),
+
+
+
           Positioned(
             bottom: 0,
-              left: 0,
-              child: CustomNavbar(
-                profilo: true,
-              ),
+            left: 0,
+            child: CustomNavbar(
+              categorie: true,
+            ),
           ),
         ],
       ),

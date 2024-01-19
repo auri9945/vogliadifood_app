@@ -41,6 +41,8 @@ dependencies:
   convert:
   collection: ^1.16.0
 
+
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -51,6 +53,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.4.7
   build_web_compilers: ^3.0.0
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

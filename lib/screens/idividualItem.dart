@@ -1,0 +1,132 @@
+import 'package:flutter/material.dart';
+
+import '../utils/colors.dart';
+import '../utils/helper.dart';
+import '../widget/CustomNavbar.dart';
+import '../widget/rigaProdotti.dart';
+import 'CategorieScreen.dart';
+
+class IndividualItem extends StatelessWidget {
+  static const routeName = "/idividualItem.dart";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          SafeArea(
+              child: Container(
+                height: Helper.getScreenHeight(context),
+                width: Helper.getScreenWidth(context),
+                child: Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image.asset(
+                        Helper.getAssetName("Sfondo_app2.png", "virtual"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed(
+                                      CategorieScreen.routeName);
+                                },
+                                child: Icon(
+                                  Icons.arrow_back_ios_rounded,
+                                  color: AppColors.Bianco,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  "Nome Risotante",
+                                  style: Helper.getTheme(context).headline6,
+                                ),
+                              ),
+                              Image.asset(
+                                Helper.getAssetName(
+                                    "shopping_cart.png", "virtual"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 250,
+                        child: Image.asset(
+                          Helper.getAssetName(
+                              "VogliaDiSchifezze.jpg", "virtual"),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Container(
+                        child:
+                        Text("Menù",
+                          style: Helper.getTheme(context).headline3,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      RigaProdotti(
+                        prodotto: "pizza",
+                        numero: "o",
+                      ),
+
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        child:
+                        Text("Bevande",
+                          style: Helper.getTheme(context).headline6,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+
+                      RigaProdotti(
+                          prodotto: "Cola Cola",
+                          numero: "1"),
+                    ],
+                  ),
+                ),
+                  ],
+                ),
+              ),
+          ),
+
+
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavbar(
+              categorie: true,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+

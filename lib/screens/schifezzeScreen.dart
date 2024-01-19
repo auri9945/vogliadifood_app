@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/screens/homeScreen.dart';
+import 'package:vogliadifood_app/screens/idividualItem.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
@@ -56,10 +58,16 @@ class SchifezzeScreen extends StatelessWidget {
                                       style: Helper.getTheme(context).headline6,
                                     ),
                                   ),
-                                  Image.asset(
-                                    Helper.getAssetName(
-                                        "shopping_cart.png", "virtual"),
-                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.of(context).pushReplacementNamed(RiepilogoScreen.routeName);
+                                    },
+                                    child: Image.asset(
+                                      Helper.getAssetName(
+                                          "shopping_cart.png", "virtual"),
+                                    ),
+                                  )
+
                                 ],
                               ),
                             ),
@@ -97,28 +105,36 @@ class SchifezzeScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "kfc.png", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                                    },
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName(
+                                            "kfc.png", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Kfc",
+                                      categoria: "Fast Food",
+                                      rate: '4',
                                     ),
-                                    name: "Kfc",
-                                    categoria: "Fast Food",
-                                    rate: '4',
                                   ),
+
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "mc.png", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child:ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName(
+                                            "mc.png", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "McDonalds",
+                                      categoria: "Fast Food",
+                                      rate: '4.5',
                                     ),
-                                    name: "McDonalds",
-                                    categoria: "Fast Food",
-                                    rate: '4.5',
                                   ),
 
                                 ],
