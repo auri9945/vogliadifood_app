@@ -1,12 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/utils/helper.dart';
 
 import 'homeScreen.dart';
 
-class LoginScreen extends StatelessWidget {
+
+
+class LoginScreen extends StatefulWidget {
   static const routeName = "/loginScreen";
+
+  @override
+  _LoginScreenState createState() =>  _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  late Box box1;
+
+  @override
+    void initState() {
+    super.initState();
+    createBox();
+    getData();
+  }
+
+  void createBox()async{
+    box1 = await Hive.openBox("login");
+  }
+
+  void getData()async{
+    if(box1.get('email')!= null){
+      email.text= box1.get('email');
+    }
+    if(box1.get('password')!= null){
+      password.text= box1.get('password');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +104,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       onPressed: () {
                         Navigator.of(context)
+                            /*login();*/
                             .pushReplacementNamed(HomeScreen.routeName);
                       },
                       child: Text("Login"),
@@ -114,7 +149,8 @@ class CustomTextInput extends StatelessWidget {
   const CustomTextInput({
     required String hintText,
     Key? key,
-  })  : _hintText = hintText,
+  })
+      : _hintText = hintText,
         super(key: key);
 
   final String _hintText;
@@ -140,4 +176,8 @@ class CustomTextInput extends StatelessWidget {
       ),
     );
   }
+/*void login(){
+    box1.put('email', email.text);
+    box1.put('password', password.text);
+}*/
 }

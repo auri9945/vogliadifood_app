@@ -26,7 +26,7 @@ import './utils/colors.dart';
 
 
 
-Future main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await Hive.initFlutter();
   runApp(const MyApp());
@@ -104,3 +104,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
