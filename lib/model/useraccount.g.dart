@@ -16,7 +16,7 @@ class UserAccountAdapter extends TypeAdapter<UserAccount> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return UserAccount();
+    return UserAccount(nome: '', cognome: '', indirizzo: '', email: '', password: '',);
   }
 
   @override

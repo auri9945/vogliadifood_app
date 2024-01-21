@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:hive/hive.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:hive_flutter/adapters.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';

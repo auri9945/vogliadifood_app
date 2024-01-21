@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vogliadifood_app/screens/introScreen.dart';
 import 'package:vogliadifood_app/screens/loginScreen.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:http/http.dart' as http;
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
@@ -18,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _indirizzo = TextEditingController();
   TextEditingController _password = TextEditingController();
+
 
 
 
@@ -89,9 +96,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   CustomTextInput(
                     hintText: "password",
                     controller: _password,
+
+
                   ),
                   SizedBox(
                     height: 20,
+
                   ),
 
 
@@ -177,20 +187,22 @@ class CustomTextInput extends StatelessWidget {
 }
 
 Future Registrazione() async {
-  var regAPIUrl = "http://protocorderspoint.com/php/registration.php";
+  var regAPIUrl = "http://localhost/vogliadifood/registrazione.php";
 
-   Map maped = {
-    'email': _email.text,
-    'indirizzo': _indirizzo.text,
-    'password': _password.text
-};
 
-  http.Response response =await http.post(Uri.parse(regAPIUrl),body:maped);
+  Map maped = {
+    //'email': _email.text,
+   //'indirizzo': _indirizzo.text,
+   // 'password': _password.text,
+  };
+
+
+  http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
 
   var data = jsonDecode(response.body);
 
   print("Data: ${data}");
-  if(data["successo"]=="1"){
 
-  }
 }
+
+
