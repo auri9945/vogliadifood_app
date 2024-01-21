@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
           headline2: TextStyle(color: AppColors.Bianco, fontSize:12),
           headline3: TextStyle(color: AppColors.Bianco, fontSize:30),
           headline4: TextStyle(color: AppColors.Text, fontSize: 18),
-          headline5: TextStyle(color: AppColors.Bianco, fontSize: 15),
+          headline5: TextStyle(color: AppColors.Bianco, fontSize: 16),
           headline6: TextStyle(color: AppColors.Bianco, fontSize: 25),
           bodyText2: TextStyle(
             color: AppColors.Bianco,
