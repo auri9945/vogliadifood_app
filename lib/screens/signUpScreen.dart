@@ -148,6 +148,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
+
+  Future Registrazione() async {
+    var regAPIUrl = "localhost/vogliadifood/registrazione.php";
+    // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
+
+
+    Map maped = {
+      'email': _email.text,
+      'indirizzo': _indirizzo.text,
+      'password': _password.text,
+    };
+
+
+    http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
+
+    var data = jsonDecode(response.body);
+
+    print("Data: ${data}");
+
+  }
 }
 
 
@@ -186,23 +206,6 @@ class CustomTextInput extends StatelessWidget {
   }
 }
 
-Future Registrazione() async {
-  var regAPIUrl = "http://localhost/vogliadifood/registrazione.php";
 
-
-  Map maped = {
-    //'email': _email.text,
-   //'indirizzo': _indirizzo.text,
-   // 'password': _password.text,
-  };
-
-
-  http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
-
-  var data = jsonDecode(response.body);
-
-  print("Data: ${data}");
-
-}
 
 
