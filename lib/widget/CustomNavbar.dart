@@ -12,8 +12,8 @@ class CustomNavbar extends StatelessWidget {
    final bool home;
    final bool profilo;
 
-  const CustomNavbar({
-    Key? key,
+  const CustomNavbar({super.key, 
+    Key? Key,
     this.categorie=false,
     this.home=false,
     this.profilo=false});

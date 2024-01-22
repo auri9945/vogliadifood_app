@@ -12,6 +12,8 @@ import 'homeScreen.dart';
 class LoginScreen extends StatefulWidget {
   static const routeName = "/loginScreen";
 
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() =>  _LoginScreenState();
 }
@@ -45,12 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: Helper.getScreenHeight(context),
         width: Helper.getScreenWidth(context),
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Image.asset(
@@ -65,31 +67,31 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   Text(
                     "Login",
-                    style: Helper.getTheme(context).headline6,
+                    style: Helper.getTheme(context).titleLarge,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text("Inserisci i tuoi dati per accedere",
-                      style: Helper.getTheme(context).headline5),
-                  SizedBox(
+                      style: Helper.getTheme(context).headlineSmall),
+                  const SizedBox(
                     height: 40,
                   ),
-                  CustomTextInput(
+                  const CustomTextInput(
                     hintText: "La tua email",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  CustomTextInput(
+                  const CustomTextInput(
                     hintText: "password",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   SizedBox(
@@ -107,10 +109,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             /*login();*/
                             .pushReplacementNamed(HomeScreen.routeName);
                       },
-                      child: Text("Login"),
+                      child: const Text("Login"),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   GestureDetector(
@@ -122,11 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Non hai un account?",
-                            style: Helper.getTheme(context).headline5),
-                        SizedBox(
+                            style: Helper.getTheme(context).headlineSmall),
+                        const SizedBox(
                           width: 10,
                         ),
-                        Text(
+                        const Text(
                           "Sign up",
                           style: TextStyle(
                               color: AppColors.Orange,
@@ -160,7 +162,7 @@ class CustomTextInput extends StatelessWidget {
     return Container(
       width: 350,
       height: 50,
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         color: AppColors.Bianco,
         shape: StadiumBorder(),
       ),
@@ -168,7 +170,7 @@ class CustomTextInput extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: _hintText,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: AppColors.Text,
           ),
           contentPadding: const EdgeInsets.only(left: 40),

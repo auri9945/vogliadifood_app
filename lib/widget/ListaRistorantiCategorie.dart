@@ -28,19 +28,19 @@ class ListaRistorantiCategorie extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: Container(
+          child: SizedBox(
               width: 200,
               height: 200,
               child: _image
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           _name,
           style: Helper.getTheme(context)
-              .headline5
+              .headlineSmall
               ?.copyWith(color: AppColors.Bianco),
         ),
         Row(
@@ -49,20 +49,20 @@ class ListaRistorantiCategorie extends StatelessWidget {
               Helper.getAssetName(
                   "star_filled.png", "virtual"),
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Text(
               _rate,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.Orange,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 bottom: 5.0,
               ),
               child: Text(
@@ -73,7 +73,7 @@ class ListaRistorantiCategorie extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Text(_categoria),

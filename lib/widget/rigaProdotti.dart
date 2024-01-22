@@ -25,7 +25,7 @@ class RigaProdotti extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(_prodotto,
-            style: Helper.getTheme(context).headline5,
+            style: Helper.getTheme(context).headlineSmall,
           ),
           Row(
             children: [
@@ -37,16 +37,16 @@ class RigaProdotti extends StatelessWidget {
 
                 },
                 child: Text("-",
-                  style: Helper.getTheme(context).headline6,
+                  style: Helper.getTheme(context).titleLarge,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Container(
                 height: 30,
                 width: 50,
-                decoration: ShapeDecoration(
+                decoration: const ShapeDecoration(
                   shape: StadiumBorder(
                       side: BorderSide(
                         color: AppColors.Bianco,
@@ -57,12 +57,12 @@ class RigaProdotti extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text( _numero,
-                      style: Helper.getTheme(context).headline5,
+                      style: Helper.getTheme(context).headlineSmall,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               ElevatedButton(
@@ -72,7 +72,7 @@ class RigaProdotti extends StatelessWidget {
                 onPressed: (){},
 
                 child: Text("+",
-                  style: Helper.getTheme(context).headline6,
+                  style: Helper.getTheme(context).titleLarge,
                 ),
               ),
             ],

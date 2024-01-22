@@ -20,14 +20,14 @@ class CategiarieVoglia extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: Container(width: 100, height: 100, child: _image),
+          child: SizedBox(width: 100, height: 100, child: _image),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(_name,
             style: Helper.getTheme(context)
-                .headline2
+                .displayMedium
                 ?.copyWith(color: AppColors.Bianco)),
       ],
     );

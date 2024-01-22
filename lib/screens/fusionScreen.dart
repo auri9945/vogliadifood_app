@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
-import 'package:vogliadifood_app/screens/homeScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
@@ -10,6 +9,8 @@ import '../widget/CustomNavbar.dart';
 class FusionScreen extends StatelessWidget {
   static const routeName = "/fusionScreen";
 
+  const FusionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,12 +18,12 @@ class FusionScreen extends StatelessWidget {
         children: [
           SafeArea(
             child: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 height: Helper.getScreenHeight(context),
                 width: Helper.getScreenWidth(context),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.asset(
@@ -45,7 +46,7 @@ class FusionScreen extends StatelessWidget {
                                     onTap: () {
                                       Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
                                     ),
@@ -53,7 +54,7 @@ class FusionScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Categorie",
-                                      style: Helper.getTheme(context).headline6,
+                                      style: Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   Image.asset(
@@ -64,10 +65,10 @@ class FusionScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Container(
+                          SizedBox(
                             width: double.infinity,
                             height: 250,
                             child: Image.asset(
@@ -76,17 +77,17 @@ class FusionScreen extends StatelessWidget {
                               fit: BoxFit.fill,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
                               "I ristoranti che soddisfano la tua voglia di novità e originalità.",
-                              style: Helper.getTheme(context).headline5,
+                              style: Helper.getTheme(context).headlineSmall,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Container(
@@ -107,7 +108,7 @@ class FusionScreen extends StatelessWidget {
                                     categoria: "Fushion",
                                     rate: '4.2',
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                   ListaRistorantiCategorie(
@@ -133,7 +134,7 @@ class FusionScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(

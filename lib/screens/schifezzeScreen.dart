@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
-import 'package:vogliadifood_app/screens/homeScreen.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
@@ -12,6 +11,8 @@ import '../widget/CustomNavbar.dart';
 class SchifezzeScreen extends StatelessWidget {
   static const routeName = "/schifezzeScreen";
 
+  const SchifezzeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,12 +20,12 @@ class SchifezzeScreen extends StatelessWidget {
         children: [
           SafeArea(
             child: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 height: Helper.getScreenHeight(context),
                 width: Helper.getScreenWidth(context),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.asset(
@@ -47,7 +48,7 @@ class SchifezzeScreen extends StatelessWidget {
                                     onTap: () {
                                       Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
                                     ),
@@ -55,7 +56,7 @@ class SchifezzeScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Categorie",
-                                      style: Helper.getTheme(context).headline6,
+                                      style: Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   GestureDetector(
@@ -72,10 +73,10 @@ class SchifezzeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Container(
+                          SizedBox(
                             width: double.infinity,
                             height: 250,
                             child: Image.asset(
@@ -84,17 +85,17 @@ class SchifezzeScreen extends StatelessWidget {
                               fit: BoxFit.fill,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
                               "Ordina un pasto che ti migliori la giornata senza i sensi di colpa!",
-                              style: Helper.getTheme(context).headline5,
+                              style: Helper.getTheme(context).headlineSmall,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Container(
@@ -121,7 +122,7 @@ class SchifezzeScreen extends StatelessWidget {
                                     ),
                                   ),
 
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                   GestureDetector(
@@ -149,7 +150,7 @@ class SchifezzeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(

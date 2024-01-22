@@ -3,6 +3,8 @@ import '../utils/colors.dart';
 import '../utils/helper.dart';
 
 class SearchBarBox extends StatelessWidget {
+  const SearchBarBox({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,7 +12,7 @@ class SearchBarBox extends StatelessWidget {
       child: Container(
         height: 50,
         width: double.infinity,
-        decoration: ShapeDecoration(
+        decoration: const ShapeDecoration(
           shape: StadiumBorder(),
           color: AppColors.Bianco,
         ),
@@ -22,7 +24,7 @@ class SearchBarBox extends StatelessWidget {
                   "search_filled.png", "virtual"),
             ),
             hintText: "Ho voglia dì..",
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               color: AppColors.Grigio,
               fontSize: 15,
             ),

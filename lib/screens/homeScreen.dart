@@ -8,6 +8,8 @@ import '../widget/categorieVoglia.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
 
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,12 +17,12 @@ class HomeScreen extends StatelessWidget {
     children: [
       SafeArea(
         child: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: Helper.getScreenHeight(context),
             width: Helper.getScreenWidth(context),
             child: Stack(
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: double.infinity,
                   child: Image.asset(
@@ -32,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Padding(
@@ -44,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Benvenuto Marino!",
-                              style: Helper.getTheme(context).headline3,
+                              style: Helper.getTheme(context).displaySmall,
                             ),
                             Image.asset(
                               Helper.getAssetName(
@@ -53,11 +55,11 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
                         child: Text("Via Roma, 23 - Torino"),
@@ -93,21 +95,21 @@ class HomeScreen extends StatelessWidget {
                       //     ),
                       //   ),
                       // ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
-                      SearchBarBox(),
-                      SizedBox(
+                      const SearchBarBox(),
+                      const SizedBox(
                         height: 20,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                           "In questo momento ho voglia dì..",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headlineSmall,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
@@ -127,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Fast Food",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
@@ -139,7 +141,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Sushi",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
@@ -149,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Kebab",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
@@ -159,7 +161,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Pizza",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
@@ -171,7 +173,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Dolce",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
@@ -182,14 +184,14 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 name: "Pasta",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Padding(
@@ -200,18 +202,18 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Ristoranti popolari",
                               style:
-                                  Helper.getTheme(context).headline3?.copyWith(
+                                  Helper.getTheme(context).displaySmall?.copyWith(
                                         fontWeight: FontWeight.bold,
                                       ),
                             ),
                             TextButton(
                               onPressed: () {},
-                              child: Text("View All"),
+                              child: const Text("View All"),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
 
@@ -253,7 +255,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      Positioned(
+      const Positioned(
           bottom:0,
           left:0,
           child: CustomNavbar(
@@ -295,7 +297,7 @@ class RistorantiPopolari extends StatelessWidget {
             width: double.infinity,
             child: _image
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 20),
@@ -306,11 +308,11 @@ class RistorantiPopolari extends StatelessWidget {
                     Text(
                      _name,
                       style:
-                          Helper.getTheme(context).headline6,
+                          Helper.getTheme(context).titleLarge,
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(
@@ -319,19 +321,19 @@ class RistorantiPopolari extends StatelessWidget {
                       Helper.getAssetName(
                           "star_filled.png", "virtual"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
                       _rate,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.Orange,
                       ),
                     ),
 
-                    SizedBox(width: 10,),
-                    Padding(
-                        padding: const EdgeInsets.only(bottom: 5.0,),
+                    const SizedBox(width: 10,),
+                    const Padding(
+                        padding: EdgeInsets.only(bottom: 5.0,),
                       child: Text(
                           ".",
                       style: TextStyle(
@@ -340,7 +342,7 @@ class RistorantiPopolari extends StatelessWidget {
                       ),
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
 
                     Text(_categoria),
                   ],

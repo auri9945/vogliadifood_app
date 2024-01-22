@@ -9,18 +9,20 @@ import 'CategorieScreen.dart';
 class IndividualItem extends StatelessWidget {
   static const routeName = "/idividualItem.dart";
 
+  const IndividualItem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SafeArea(
-              child: Container(
+              child: SizedBox(
                 height: Helper.getScreenHeight(context),
                 width: Helper.getScreenWidth(context),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.asset(
@@ -46,7 +48,7 @@ class IndividualItem extends StatelessWidget {
                                       .pushReplacementNamed(
                                       CategorieScreen.routeName);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back_ios_rounded,
                                   color: AppColors.Bianco,
                                 ),
@@ -54,7 +56,7 @@ class IndividualItem extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   "Nome Risotante",
-                                  style: Helper.getTheme(context).headline6,
+                                  style: Helper.getTheme(context).titleLarge,
                                 ),
                               ),
                               Image.asset(
@@ -65,7 +67,7 @@ class IndividualItem extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         height: 250,
                         child: Image.asset(
@@ -74,37 +76,37 @@ class IndividualItem extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Container(
                         child:
                         Text("Menù",
-                          style: Helper.getTheme(context).headline3,
+                          style: Helper.getTheme(context).displaySmall,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
-                      RigaProdotti(
+                      const RigaProdotti(
                         prodotto: "pizza",
                         numero: "o",
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Container(
                         child:
                         Text("Bevande",
-                          style: Helper.getTheme(context).headline6,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
 
-                      RigaProdotti(
+                      const RigaProdotti(
                           prodotto: "Cola Cola",
                           numero: "1"),
                     ],
@@ -116,7 +118,7 @@ class IndividualItem extends StatelessWidget {
           ),
 
 
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(

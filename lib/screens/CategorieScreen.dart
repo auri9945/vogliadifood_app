@@ -17,17 +17,19 @@ import '../widget/categorieVoglia.dart';
 class CategorieScreen extends StatelessWidget {
   static const routeName = "/categorieScreen";
 
+  const CategorieScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
       children: [
         SafeArea(
-          child: Container(
+          child: SizedBox(
             height: Helper.getScreenHeight(context),
             width: Helper.getScreenWidth(context),
             child: Stack(children: [
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: double.infinity,
                 child: Image.asset(
@@ -37,7 +39,7 @@ class CategorieScreen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Padding(
@@ -49,7 +51,7 @@ class CategorieScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Categorie",
-                          style: Helper.getTheme(context).headline6,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
                         Image.asset(
                           Helper.getAssetName(
@@ -58,21 +60,21 @@ class CategorieScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  SearchBarBox(),
-                  SizedBox(
+                  const SearchBarBox(),
+                  const SizedBox(
                     height: 30,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       "Ho voglia dì..",
-                      style: Helper.getTheme(context).headline6,
+                      style: Helper.getTheme(context).titleLarge,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Container(
@@ -97,7 +99,7 @@ class CategorieScreen extends StatelessWidget {
                                   name: "Schifezze",
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               GestureDetector(
@@ -114,7 +116,7 @@ class CategorieScreen extends StatelessWidget {
                                   name: "Dolci",
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
 
@@ -134,7 +136,7 @@ class CategorieScreen extends StatelessWidget {
                               ),
                             ]
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         Padding(
@@ -156,7 +158,7 @@ class CategorieScreen extends StatelessWidget {
                                   ),
                                 ),
 
-                                SizedBox(
+                                const SizedBox(
                                   width: 15,
                                 ),
 
@@ -175,7 +177,7 @@ class CategorieScreen extends StatelessWidget {
                                   ),
                                 ),
 
-                                SizedBox(
+                                const SizedBox(
                                   width: 15,
                                 ),
 
@@ -217,7 +219,7 @@ class CategorieScreen extends StatelessWidget {
                                   ),
                                 ),
 
-                                SizedBox(
+                                const SizedBox(
                                   width: 15,
                                 ),
 
@@ -236,7 +238,7 @@ class CategorieScreen extends StatelessWidget {
                                   ),
                                 ),
 
-                                SizedBox(
+                                const SizedBox(
                                   width: 15,
                                 ),
 
@@ -265,7 +267,7 @@ class CategorieScreen extends StatelessWidget {
             ]),
           ),
         ),
-        Positioned(
+        const Positioned(
           bottom: 0,
           left: 0,
           child: CustomNavbar(

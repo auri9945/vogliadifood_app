@@ -6,15 +6,17 @@ import 'package:vogliadifood_app/utils/helper.dart';
 import 'loginScreen.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: Helper.getScreenWidth(context),
         height: Helper.getScreenHeight(context),
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Image.asset(
@@ -34,13 +36,13 @@ class SplashScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      Flexible(
+                      const Flexible(
                         child: Text(
                           "Voglia di l'app del food che c'è sempre per te. Accedi o regitrati per soddisfare le tue Vogliedì..",
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Spacer(
+                      const Spacer(
                         flex: 1,
                       ),
                       SizedBox(
@@ -52,12 +54,12 @@ class SplashScreen extends StatelessWidget {
                                 .pushReplacementNamed(LoginScreen.routeName);
                           },
                           style: TextButton.styleFrom(
-                            primary: AppColors.Bianco, // Text Color
+                            foregroundColor: AppColors.Bianco, // Text Color
                           ),
-                          child: Text("Login"),
+                          child: const Text("Login"),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SizedBox(
@@ -70,7 +72,7 @@ class SplashScreen extends StatelessWidget {
                             foregroundColor:
                                 MaterialStateProperty.all(AppColors.Bianco),
                             shape: MaterialStateProperty.all(
-                              StadiumBorder(
+                              const StadiumBorder(
                                 side: BorderSide(
                                     color: AppColors.Bianco, width: 1.5),
                               ),
@@ -80,7 +82,7 @@ class SplashScreen extends StatelessWidget {
                             Navigator.of(context)
                                 .pushReplacementNamed(SignUpScreen.routeName);
                           },
-                          child: Text("Crea il tuo account"),
+                          child: const Text("Crea il tuo account"),
                         ),
                       ),
                     ],

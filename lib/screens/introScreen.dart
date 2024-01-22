@@ -7,16 +7,18 @@ import '../utils/helper.dart';
 class IntroScreen extends StatelessWidget {
   static const routeName = "/introScreen";
 
+  const IntroScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: Helper.getScreenHeight(context),
         width: Helper.getScreenWidth(context),
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: double.infinity,
               // padding: const EdgeInsets.symmetric(
@@ -38,14 +40,14 @@ class IntroScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 500,
                     ),
                     Text(
                       "Inizia ora a soddisfare le tue Vogliedì...",
-                      style: Helper.getTheme(context).headline5,
+                      style: Helper.getTheme(context).headlineSmall,
                     ),
-                    SizedBox(height: 30,),
+                    const SizedBox(height: 30,),
 
                     SizedBox(
                       width: 150,
@@ -60,7 +62,7 @@ class IntroScreen extends StatelessWidget {
                           Navigator.of(context)
                               .pushReplacementNamed(HomeScreen.routeName);
                         },
-                        child: Text("Prosegui >>"),
+                        child: const Text("Prosegui >>"),
                       ),
                     ),
                   ],

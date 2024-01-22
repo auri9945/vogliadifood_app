@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/widget/rigaProdotti.dart';
@@ -6,10 +5,11 @@ import 'package:vogliadifood_app/widget/rigaProdotti.dart';
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
-import 'CategorieScreen.dart';
 
 class RiepilogoScreen extends StatelessWidget {
   static const routeName = "/riepilogoScreen";
+
+  const RiepilogoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +17,12 @@ class RiepilogoScreen extends StatelessWidget {
       body: Stack(
         children: [
           SafeArea(
-              child: Container(
+              child: SizedBox(
                 height: Helper.getScreenHeight(context),
                 width: Helper.getScreenWidth(context),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.asset(
@@ -46,7 +46,7 @@ class RiepilogoScreen extends StatelessWidget {
                                     onTap: () {
                                       Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
                                     ),
@@ -54,7 +54,7 @@ class RiepilogoScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Back",
-                                      style: Helper.getTheme(context).headline6,
+                                      style: Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   Image.asset(
@@ -65,39 +65,39 @@ class RiepilogoScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 50,
                           ),
                           Container(
                             child:
                             Text("Riepilogo ordine",
-                              style: Helper.getTheme(context).headline3,
+                              style: Helper.getTheme(context).displaySmall,
                             ),
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 50,
                           ),
-                          RigaProdotti(
+                          const RigaProdotti(
                             prodotto: "pizza",
                             numero: "2",
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 50,
                           ),
 
-                          Container(
+                          SizedBox(
                             height: 50,
                             width: 200,
                             child: ElevatedButton(
-                              style: ButtonStyle(
+                              style: const ButtonStyle(
                               ),
                               onPressed: (){},
 
                               child:
                               Text("Procedi al pagamento",
-                                style: Helper.getTheme(context).headline5,),
+                                style: Helper.getTheme(context).headlineSmall,),
                             ),
                           ),
                         ],
@@ -110,7 +110,7 @@ class RiepilogoScreen extends StatelessWidget {
 
 
 
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(

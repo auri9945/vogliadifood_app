@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
-import 'package:vogliadifood_app/screens/homeScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
@@ -10,6 +9,8 @@ import '../widget/CustomNavbar.dart';
 class CasaScreen extends StatelessWidget {
   static const routeName = "/casaScreen";
 
+  const CasaScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,12 +18,12 @@ class CasaScreen extends StatelessWidget {
         children: [
           SafeArea(
             child: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 height: Helper.getScreenHeight(context),
                 width: Helper.getScreenWidth(context),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.asset(
@@ -47,7 +48,7 @@ class CasaScreen extends StatelessWidget {
                                           .pushReplacementNamed(
                                           CategorieScreen.routeName);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
                                     ),
@@ -55,7 +56,7 @@ class CasaScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Categorie",
-                                      style: Helper.getTheme(context).headline6,
+                                      style: Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   Image.asset(
@@ -66,10 +67,10 @@ class CasaScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Container(
+                          SizedBox(
                             width: double.infinity,
                             height: 250,
                             child: Image.asset(
@@ -78,17 +79,17 @@ class CasaScreen extends StatelessWidget {
                               fit: BoxFit.fill,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
                               "“Hai mangiato? È la più autentica espressione d’amore.”",
-                              style: Helper.getTheme(context).headline5,
+                              style: Helper.getTheme(context).headlineSmall,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Container(
@@ -108,7 +109,7 @@ class CasaScreen extends StatelessWidget {
                                     categoria: "ristorante",
                                     rate: '5',
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                   ListaRistorantiCategorie(
@@ -132,7 +133,7 @@ class CasaScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(
