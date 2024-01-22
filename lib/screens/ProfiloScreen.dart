@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 
 import '../utils/helper.dart';
+import '../widget/customTextInput.dart';
 import 'loginScreen.dart';
 
 class ProfiloScreen extends StatelessWidget {
   static const routeName = "/profiloScreen";
 
   const ProfiloScreen({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,7 @@ class ProfiloScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 40,
                           ),
                           Container(
@@ -61,33 +64,8 @@ class ProfiloScreen extends StatelessWidget {
                               style: Helper.getTheme(context).displaySmall,
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 40,
-                          ),
-                          const CustomTextInput(
-                            hintText: 'nome',
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const CustomTextInput(
-                            hintText: 'Cognome',
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const CustomTextInput(
-                            hintText: 'Email',
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const CustomTextInput(
-                            hintText: 'Indirizzo',
-                          ),
-
-                          const SizedBox(
-                            height: 30,
                           ),
 
                           SizedBox(
@@ -97,7 +75,8 @@ class ProfiloScreen extends StatelessWidget {
                               style: const ButtonStyle(
 
                               ),
-                              onPressed: (){},
+                              onPressed: (){
+                              },
                               child:
                               Text("Aggiorna profilo",
                               style: Helper.getTheme(context).headlineSmall,),
@@ -150,3 +129,4 @@ class ProfiloScreen extends StatelessWidget {
     );
   }
 }
+

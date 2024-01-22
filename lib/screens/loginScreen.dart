@@ -1,12 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/response/response.dart';
+import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:vogliadifood_app/screens/introScreen.dart';
 import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/utils/helper.dart';
 
+import '../widget/customTextInput.dart';
 import 'homeScreen.dart';
-
+import 'package:http/http.dart' as http;
 
 
 class LoginScreen extends StatefulWidget {
@@ -19,30 +25,30 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
 
-  late Box box1;
-
-  @override
-    void initState() {
-    super.initState();
-    createBox();
-    getData();
-  }
-
-  void createBox()async{
-    box1 = await Hive.openBox("login");
-  }
-
-  void getData()async{
-    if(box1.get('email')!= null){
-      email.text= box1.get('email');
-    }
-    if(box1.get('password')!= null){
-      password.text= box1.get('password');
-    }
-  }
+  // late Box box1;
+  //
+  // @override
+  //   void initState() {
+  //   super.initState();
+  //   createBox();
+  //   getData();
+  // }
+  //
+  // void createBox()async{
+  //   box1 = await Hive.openBox("login");
+  // }
+  //
+  // void getData()async{
+  //   if(box1.get('email')!= null){
+  //     email.text= box1.get('email');
+  //   }
+  //   if(box1.get('password')!= null){
+  //     password.text= box1.get('password');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -67,33 +73,43 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Column(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 60,
                   ),
                   Text(
                     "Login",
                     style: Helper.getTheme(context).titleLarge,
                   ),
-                  const SizedBox(
+
+                  SizedBox(
                     height: 10,
                   ),
+
                   Text("Inserisci i tuoi dati per accedere",
                       style: Helper.getTheme(context).headlineSmall),
-                  const SizedBox(
+
+                  SizedBox(
                     height: 40,
                   ),
-                  const CustomTextInput(
+
+                  CustomTextInput(
                     hintText: "La tua email",
+                    controller: _email,
                   ),
-                  const SizedBox(
+
+                  SizedBox(
                     height: 20,
                   ),
-                  const CustomTextInput(
+
+                  CustomTextInput(
                     hintText: "password",
+                    controller: _password,
                   ),
-                  const SizedBox(
+
+                  SizedBox(
                     height: 30,
                   ),
+
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -105,9 +121,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             MaterialStateProperty.all(AppColors.Bianco),
                       ),
                       onPressed: () {
-                        Navigator.of(context)
-                            /*login();*/
-                            .pushReplacementNamed(HomeScreen.routeName);
+                        Login();
+
                       },
                       child: const Text("Login"),
                     ),
@@ -145,41 +160,37 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
 
-class CustomTextInput extends StatelessWidget {
-  const CustomTextInput({
-    required String hintText,
-    Key? key,
-  })
-      : _hintText = hintText,
-        super(key: key);
+  Future Login() async {
 
-  final String _hintText;
+    if(_email.text != "" ||  _password.text !=""){
+      try{}
+      catch(e){
+        print(e);
+      }
+    }
+    else{
+      print("Compila tutti i campi");
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      height: 50,
-      decoration: const ShapeDecoration(
-        color: AppColors.Bianco,
-        shape: StadiumBorder(),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: _hintText,
-          hintStyle: const TextStyle(
-            color: AppColors.Text,
-          ),
-          contentPadding: const EdgeInsets.only(left: 40),
-        ),
-      ),
-    );
+    var regAPIUrl = "http://localhost/Vogliadifood/login.php";
+    // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
+
+
+    Map maped = {
+      'email': _email.text,
+      'password': _password.text,
+    };
+
+    http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
+
+    var data = jsonDecode(response.body);
+
+    print("Data: ${data}");
+
+    if(data['success'] == "1"){
+      Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
+    }
   }
-/*void login(){
-    box1.put('email', email.text);
-    box1.put('password', password.text);
-}*/
 }
+

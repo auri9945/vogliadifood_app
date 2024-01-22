@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
+import '../widget/customTextInput.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = "/signUpScreen";
@@ -47,99 +48,101 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 fit: BoxFit.fill,
               ),
             ),
+            SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 30,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 60,
+                    ),
+                    Text(
+                      "Registrati",
+                      style: Helper.getTheme(context).headline6,
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    Text("Inserisci i tuoi dati per creare il tuo account",
+                        style: Helper.getTheme(context).headline5
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+
+                    CustomTextInput(
+                      hintText: "La tua email",
+                      controller: _email,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    CustomTextInput(
+                      hintText: "Indirizzo",
+                      controller: _indirizzo,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    CustomTextInput(
+                      hintText: "password",
+                      controller: _password,
 
 
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 30,
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 60,
-                  ),
-                  Text(
-                    "Registrati",
-                    style: Helper.getTheme(context).headline6,
-                  ),
+                    ),
+                    SizedBox(
+                      height: 20,
 
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  Text("Inserisci i tuoi dati per creare il tuo account",
-                      style: Helper.getTheme(context).headline5
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-
-                  CustomTextInput(
-                    hintText: "La tua email",
-                    controller: _email,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-                  CustomTextInput(
-                    hintText: "Indirizzo",
-                    controller: _indirizzo,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-                  CustomTextInput(
-                    hintText: "password",
-                    controller: _password,
+                    ),
 
 
-                  ),
-                  SizedBox(
-                    height: 20,
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child:
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
+                          foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                        ),
+                        onPressed: (){
+                          Registrazione();
 
-                  ),
-
-
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child:
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
-                        foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                          //Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
+                        },
+                        child: Text("Registrati"),
                       ),
-                      onPressed: (){
-                        Registrazione();
-                        //Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
-                      },
-                      child: Text("Registrati"),
                     ),
-                  ),
 
-                  SizedBox(height: 30,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.of(context)
-                          .pushReplacementNamed(LoginScreen.routeName);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Hai già un account?",
-                            style: Helper.getTheme(context).headline5),
-                        SizedBox(width: 10,),
-                        Text("Login",
-                          style: TextStyle(color: AppColors.Orange, fontWeight: FontWeight.bold),),
-                      ],
-                    ),
-                  )
-                ],
+                    SizedBox(height: 30,),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.of(context)
+                            .pushReplacementNamed(LoginScreen.routeName);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Hai già un account?",
+                              style: Helper.getTheme(context).headline5),
+                          SizedBox(width: 10,),
+                          Text("Login",
+                            style: TextStyle(color: AppColors.Orange, fontWeight: FontWeight.bold),),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
+
           ],
         ),
       ),
@@ -158,7 +161,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       print("please all the files");
     }
 
-    var regAPIUrl = "http://localhost/AndroidProgetto/vogliadifood/registrazione.php";
+    var regAPIUrl = "http://localhost/Vogliadifood/registrazione.php";
     // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
 
 
@@ -179,40 +182,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 }
 
 
-class CustomTextInput extends StatelessWidget {
-  const CustomTextInput({
-    required String hintText,
-    required TextEditingController controller,
-    Key? key,
-  }) : _hintText = hintText, _controller= controller, super (key: key) ;
 
-
-  final String _hintText;
-  final TextEditingController _controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      decoration: ShapeDecoration(
-        color: AppColors.Bianco,
-        shape: StadiumBorder(),
-      ),
-      child: TextField(
-        controller: _controller,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: _hintText,
-          hintStyle: TextStyle(
-            color: AppColors.Text,
-          ),
-          contentPadding: const EdgeInsets.only(left: 40),
-        ),
-      ),
-    );
-  }
-}
 
 
 
