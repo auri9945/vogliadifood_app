@@ -69,7 +69,6 @@ class SchifezzeScreen extends StatelessWidget {
                                           "shopping_cart.png", "virtual"),
                                     ),
                                   )
-
                                 ],
                               ),
                             ),
@@ -108,25 +107,6 @@ class SchifezzeScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   GestureDetector(
-                                    onTap: (){
-                                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
-                                    },
-                                    child: ListaRistorantiCategorie(
-                                      image: Image.asset(
-                                        Helper.getAssetName(
-                                            "kfc.png", "virtual"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      name: "Kfc",
-                                      categoria: "Fast Food",
-                                      rate: '4',
-                                    ),
-                                  ),
-
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  GestureDetector(
                                     child:ListaRistorantiCategorie(
                                       image: Image.asset(
                                         Helper.getAssetName(
@@ -137,6 +117,10 @@ class SchifezzeScreen extends StatelessWidget {
                                       categoria: "Fast Food",
                                       rate: '4.5',
                                     ),
+                                    onTap: (){
+                                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+
+                                    },
                                   ),
 
                                 ],

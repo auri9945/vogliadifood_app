@@ -100,27 +100,20 @@ class MareScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("mare.png", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("mare.png", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Ristorante Da Dino",
+                                      categoria: "Pesce",
+                                      rate: '5',
                                     ),
-                                    name: "Ristorante Da Dino",
-                                    categoria: "Pesce",
-                                    rate: '5',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("mare (2).png", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Locanda TerraMare",
-                                    categoria: "Pesce",
-                                    rate: '4.3',
-                                  ),
+                                    onTap: (){},
+                                  )
+
+
                                 ],
                               ),
                             ),

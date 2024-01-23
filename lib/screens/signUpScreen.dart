@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
 
                     CustomTextInput(
-                      hintText: "Indirizzo",
+                      hintText: "il tuo indirizzo",
                       controller: _indirizzo,
                     ),
                     SizedBox(
@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
 
                     CustomTextInput(
-                      hintText: "password",
+                      hintText: "inserisci password",
                       controller: _password,
 
 
@@ -181,7 +181,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if(data['success'] == '1'){
       Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
     }
-
+    else {
+      Fluttertoast.showToast(
+          msg: data['message'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 2,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+    }
   }
 }
 

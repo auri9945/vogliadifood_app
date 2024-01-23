@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
@@ -102,11 +103,27 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
+
+
+
+
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(
-                          "In questo momento ho voglia dì..",
-                          style: Helper.getTheme(context).headlineSmall,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "In questo momento ho voglia dì...",
+                              style:
+                              Helper.getTheme(context).headlineSmall
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                              },
+                              child: const Text("View All"),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(
@@ -119,6 +136,7 @@ class HomeScreen extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
+
                             children: [
                               CategiarieVoglia(
                                 image: Image.asset(
@@ -127,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                                       "virtual"),
                                   fit: BoxFit.cover,
                                 ),
-                                name: "Fast Food",
+                                name: "Schifezze",
                               ),
                               const SizedBox(
                                 width: 10,
@@ -139,50 +157,27 @@ class HomeScreen extends StatelessWidget {
                                       "virtual"),
                                   fit: BoxFit.cover,
                                 ),
-                                name: "Sushi",
+                                name: "Mondo",
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
                                 image: Image.asset(
-                                  Helper.getAssetName("Kebab.jpg", "virtual"),
+                                  Helper.getAssetName("salutare.png", "virtual"),
                                   fit: BoxFit.cover,
                                 ),
-                                name: "Kebab",
+                                name: "Salutare",
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               CategiarieVoglia(
                                 image: Image.asset(
-                                  Helper.getAssetName("pizza.jpg", "virtual"),
+                                  Helper.getAssetName("casa.png", "virtual"),
                                   fit: BoxFit.cover,
                                 ),
-                                name: "Pizza",
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "fetta-di-cheesecake-al-cioccolato-dolce-su-piatto-di-stoviglie-nere-ai-generativo.jpg",
-                                      "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Dolce",
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "spaghetticozze.jpeg", "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Pasta",
+                                name: "Casa",
                               ),
                               const SizedBox(
                                 width: 10,
@@ -200,15 +195,9 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Ristoranti popolari",
-                              style:
-                                  Helper.getTheme(context).displaySmall?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text("View All"),
+                                "Ristoranti popolari",
+                                style:
+                                Helper.getTheme(context).headline6,
                             ),
                           ],
                         ),

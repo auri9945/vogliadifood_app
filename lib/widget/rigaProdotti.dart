@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../utils/colors.dart';
 import '../utils/helper.dart';
+import '../screens/idividualItem.dart';
 
 
 class RigaProdotti extends StatelessWidget {
@@ -9,7 +9,10 @@ class RigaProdotti extends StatelessWidget {
     required String prodotto,
     required String numero,
     Key? key,
-  }): _prodotto = prodotto, _numero = numero, super(key: key);
+  })
+      : _prodotto = prodotto,
+        _numero = numero,
+        super(key: key);
 
   final String _prodotto;
   final String _numero;
@@ -70,7 +73,6 @@ class RigaProdotti extends StatelessWidget {
                   elevation: MaterialStateProperty.all(5.0),
                 ),
                 onPressed: (){},
-
                 child: Text("+",
                   style: Helper.getTheme(context).titleLarge,
                 ),
@@ -82,3 +84,5 @@ class RigaProdotti extends StatelessWidget {
     );
   }
 }
+
+

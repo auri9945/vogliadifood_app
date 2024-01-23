@@ -100,27 +100,21 @@ class CasaScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("casa.png", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("casa.png", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Cà Dij Mat",
+                                      categoria: "ristorante",
+                                      rate: '5',
                                     ),
-                                    name: "Cà Dij Mat",
-                                    categoria: "ristorante",
-                                    rate: '5',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("casa (2).png", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Trattoria AlleVolte",
-                                    categoria: "trattoria",
-                                    rate: '4.3',
-                                  ),
+                                    onTap: (){
+
+                                    },
+                                  )
+
                                 ],
                               ),
                             ),

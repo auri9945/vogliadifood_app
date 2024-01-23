@@ -11,6 +11,7 @@ class IndividualItem extends StatelessWidget {
 
   const IndividualItem({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +77,7 @@ class IndividualItem extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 40,
                       ),
                       Container(
@@ -85,15 +86,15 @@ class IndividualItem extends StatelessWidget {
                           style: Helper.getTheme(context).displaySmall,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 30,
                       ),
-                      const RigaProdotti(
+                      RigaProdotti(
                         prodotto: "pizza",
                         numero: "o",
                       ),
 
-                      const SizedBox(
+                      SizedBox(
                         height: 30,
                       ),
                       Container(
@@ -102,13 +103,14 @@ class IndividualItem extends StatelessWidget {
                           style: Helper.getTheme(context).titleLarge,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 30,
                       ),
 
-                      const RigaProdotti(
+                      RigaProdotti(
                           prodotto: "Cola Cola",
-                          numero: "1"),
+                          numero: "1",
+                      ),
                     ],
                   ),
                 ),

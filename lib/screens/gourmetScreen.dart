@@ -98,30 +98,18 @@ class GourmetScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "LaRossa.png", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName(
+                                            "LaRossa.png", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Ristorante Larossa",
+                                      categoria: "Gourmet",
+                                      rate: '5',
                                     ),
-                                    name: "Ristorante Larossa",
-                                    categoria: "Gourmet",
-                                    rate: '5',
                                   ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "gourmet_pesce.png", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Baleno - Idea di mare",
-                                    categoria: "Gourmet",
-                                    rate: '4.5',
-                                  ),
-
                                 ],
                               ),
                             ),

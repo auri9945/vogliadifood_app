@@ -98,29 +98,19 @@ class FusionScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "poke_housefusion_salutare.jpg", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName(
+                                            "poke_housefusion_salutare.jpg", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Poke House",
+                                      categoria: "Fushion",
+                                      rate: '4.2',
                                     ),
-                                    name: "Poke House",
-                                    categoria: "Fushion",
-                                    rate: '4.2',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName(
-                                          "Gaharu_restaurant.jpg", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Ristorante Gaharu",
-                                    categoria: "Fushion",
-                                    rate: '4',
-                                  ),
+                                    onTap: (){},
+                                  )
 
                                 ],
                               ),

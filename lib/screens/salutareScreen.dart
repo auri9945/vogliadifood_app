@@ -100,27 +100,19 @@ class SalutareScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("poke_housefusion_salutare.jpg", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("poke_housefusion_salutare.jpg", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Poke House",
+                                      categoria: "Salutare",
+                                      rate: '4,2',
                                     ),
-                                    name: "Poke House",
-                                    categoria: "Salutare",
-                                    rate: '4,2',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("Avocado_cafe.png", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Cake Lab",
-                                    categoria: "Salutare",
-                                    rate: '3.8',
-                                  ),
+                                    onTap: (){},
+                                  )
+
                                 ],
                               ),
                             ),

@@ -100,27 +100,20 @@ class DolciScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("torteria.jpg", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                      onTap: (){},
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("torteria.jpg", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Tartatea Torteria",
+                                      categoria: "Pasticceria",
+                                      rate: '4,5',
                                     ),
-                                    name: "Tartatea Torteria",
-                                    categoria: "Pasticceria",
-                                    rate: '4,5',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("cakelab.jpg", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Cake Lab",
-                                    categoria: "Pasticceria",
-                                    rate: '4.9',
-                                  ),
+                                  )
+
+
                                 ],
                               ),
                             ),

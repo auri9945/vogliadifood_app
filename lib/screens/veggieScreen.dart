@@ -100,27 +100,19 @@ class VeggieScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("AliceeViola.jpg", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("AliceeViola.jpg", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Alice e Viola - Cucina vegetale",
+                                      categoria: "Ristorante",
+                                      rate: '4,7',
                                     ),
-                                    name: "Alice e Viola - Cucina vegetale",
-                                    categoria: "Ristorante",
-                                    rate: '4,7',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("poke_housefusion_salutare.jpg", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Poke House",
-                                    categoria: "Pasticceria",
-                                    rate: '4.2',
-                                  ),
+                                    onTap: (){},
+                                  )
+
                                 ],
                               ),
                             ),

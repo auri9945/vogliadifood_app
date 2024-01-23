@@ -100,26 +100,17 @@ class MondoScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("Thai Food Torino.jpg", "virtual"),
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: ListaRistorantiCategorie(
+                                      image: Image.asset(
+                                        Helper.getAssetName("Thai Food Torino.jpg", "virtual"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      name: "Thai Food Torino",
+                                      categoria: "Ristorante",
+                                      rate: '4,7',
                                     ),
-                                    name: "Thai Food Torino",
-                                    categoria: "Ristorante",
-                                    rate: '4,7',
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListaRistorantiCategorie(
-                                    image: Image.asset(
-                                      Helper.getAssetName("Legami Sushi & More..jpg", "virtual"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    name: "Legami Sushi & More",
-                                    categoria: "Ristorante",
-                                    rate: '4.2',
                                   ),
                                 ],
                               ),

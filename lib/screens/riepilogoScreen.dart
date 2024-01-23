@@ -11,6 +11,7 @@ class RiepilogoScreen extends StatelessWidget {
 
   const RiepilogoScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +79,7 @@ class RiepilogoScreen extends StatelessWidget {
                           const SizedBox(
                             height: 50,
                           ),
-                          const RigaProdotti(
+                           RigaProdotti(
                             prodotto: "pizza",
                             numero: "2",
                           ),
