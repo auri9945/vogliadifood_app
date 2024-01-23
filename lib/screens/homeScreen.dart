@@ -5,6 +5,7 @@ import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
 import '../utils/helper.dart';
 import '../widget/categorieVoglia.dart';
+import 'idividualItem.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
@@ -205,17 +206,22 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-
-                      RistorantiPopolari(
-                        image: Image.asset(
-                          Helper.getAssetName(
-                              "spaghettipomodorini.jpg", "virtual"),
-                          fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                        },
+                        child: RistorantiPopolari(
+                          image: Image.asset(
+                            Helper.getAssetName(
+                                "spaghettipomodorini.jpg", "virtual"),
+                            fit: BoxFit.cover,
+                          ),
+                          name: "la Cucaracia",
+                          categoria: "Pasta",
+                          rate: '4.5',
                         ),
-                        name: "la Cucaracia",
-                        categoria: "Pasta",
-                        rate: '4.5',
                       ),
+
                       RistorantiPopolari(
                         image: Image.asset(
                         Helper.getAssetName(

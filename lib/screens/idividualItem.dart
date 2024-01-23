@@ -1,10 +1,35 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 import '../widget/rigaProdotti.dart';
 import 'CategorieScreen.dart';
+import 'package:http/http.dart' as http;
+
+ElencoDeiPiatti() async {
+  var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/ElencaPiatti.php";
+
+  http.Response response = await http.post(Uri.parse(regAPIUrl));
+
+  var data = jsonDecode(response as String);
+
+  function(response){
+
+    response.forEach((item)=>{
+
+      RigaProdotti(
+        prodotto: item.piatto,
+        numero: "o",
+      ),
+    });
+  }
+}
+
 
 class IndividualItem extends StatelessWidget {
   static const routeName = "/idividualItem.dart";
@@ -56,7 +81,7 @@ class IndividualItem extends StatelessWidget {
                               ),
                               Expanded(
                                 child: Text(
-                                  "Nome Risotante",
+                                  "Nome Ristorante",
                                   style: Helper.getTheme(context).titleLarge,
                                 ),
                               ),
@@ -97,6 +122,13 @@ class IndividualItem extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
+
+                      ElencoDeiPiatti(),
+
+
+                      SizedBox(
+                        height: 30,
+                      ),
                       Container(
                         child:
                         Text("Bevande",
@@ -131,6 +163,9 @@ class IndividualItem extends StatelessWidget {
       ),
     );
   }
-}
+
+
+
+  }
 
 
