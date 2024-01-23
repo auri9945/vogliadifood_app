@@ -13,6 +13,7 @@ import 'package:vogliadifood_app/utils/helper.dart';
 import '../widget/customTextInput.dart';
 import 'homeScreen.dart';
 import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -173,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
       print("Compila tutti i campi");
     }
 
-    var regAPIUrl = "http://localhost/Vogliadifood/login.php";
+    var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/login.php";
     // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
 
 
@@ -184,12 +185,32 @@ class _LoginScreenState extends State<LoginScreen> {
 
     http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
 
-    var data = jsonDecode(response.body);
+    var data = (json.decode(response.body));
 
     print("Data: ${data}");
 
-    if(data['success'] == "1"){
-      Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
+    if(data['success'] == '1'){
+      Fluttertoast.showToast(
+          msg: "Login effettuato!",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+      // Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
+    }
+    else {
+      Fluttertoast.showToast(
+          msg: "Login non effettuato",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
     }
   }
 }

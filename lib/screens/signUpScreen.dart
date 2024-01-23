@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/customTextInput.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = "/signUpScreen";
@@ -161,7 +162,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       print("please all the files");
     }
 
-    var regAPIUrl = "http://localhost/Vogliadifood/registrazione.php";
+    var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/registrazione.php";
     // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
 
 
@@ -177,6 +178,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     var data = jsonDecode(response.body);
 
     print("Data: ${data}");
+    if(data['success'] == '1'){
+      Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+    }
 
   }
 }
