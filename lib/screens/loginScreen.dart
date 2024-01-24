@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:vogliadifood_app/screens/introScreen.dart';
 import 'package:vogliadifood_app/screens/signUpScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
@@ -12,7 +13,7 @@ import 'package:vogliadifood_app/utils/helper.dart';
 import '../widget/customTextInput.dart';
 import 'homeScreen.dart';
 import 'package:http/http.dart' as http;
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 
 class LoginScreen extends StatefulWidget {
@@ -28,27 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
 
-  // late Box box1;
-  //
-  // @override
-  //   void initState() {
-  //   super.initState();
-  //   createBox();
-  //   getData();
-  // }
-  //
-  // void createBox()async{
-  //   box1 = await Hive.openBox("login");
-  // }
-  //
-  // void getData()async{
-  //   if(box1.get('email')!= null){
-  //     email.text= box1.get('email');
-  //   }
-  //   if(box1.get('password')!= null){
-  //     password.text= box1.get('password');
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -192,15 +172,11 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
     }
     else {
-      Fluttertoast.showToast(
-          msg: data['message'],
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 2,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0
-      );
+      Alert(
+          context: context,
+          title: "RFLUTTER ALERT",
+          desc: data['message'])
+          .show();
     }
   }
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:vogliadifood_app/screens/introScreen.dart';
 import 'package:vogliadifood_app/screens/loginScreen.dart';
 import 'package:hive/hive.dart';
@@ -11,7 +12,7 @@ import 'package:http/http.dart' as http;
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/customTextInput.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = "/signUpScreen";
@@ -182,15 +183,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
     }
     else {
-      Fluttertoast.showToast(
-          msg: data['message'],
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 2,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0
-      );
+      Alert(
+          context: context,
+          title: "RFLUTTER ALERT",
+          desc: data['message'])
+          .show();
     }
   }
 }
