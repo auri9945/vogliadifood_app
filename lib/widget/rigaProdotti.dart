@@ -8,14 +8,17 @@ class RigaProdotti extends StatelessWidget {
   const RigaProdotti({
     required String prodotto,
     required String numero,
+
     Key? key,
   })
       : _prodotto = prodotto,
         _numero = numero,
+
         super(key: key);
 
   final String _prodotto;
   final String _numero;
+
 
   @override
   Widget build(BuildContext context) {

@@ -82,6 +82,7 @@ class RiepilogoScreen extends StatelessWidget {
                            RigaProdotti(
                             prodotto: "pizza",
                             numero: "2",
+
                           ),
 
                           const SizedBox(

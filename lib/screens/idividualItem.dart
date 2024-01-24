@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:vogliadifood_app/model/piatti.dart';
+import 'package:vogliadifood_app/model/piatti_api.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -11,31 +13,19 @@ import '../widget/rigaProdotti.dart';
 import 'CategorieScreen.dart';
 import 'package:http/http.dart' as http;
 
-ElencoDeiPiatti() async {
-  var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/ElencaPiatti.php";
-
-  http.Response response = await http.post(Uri.parse(regAPIUrl));
-
-  var data = jsonDecode(response as String);
-
-  function(response){
-
-    response.forEach((item)=>{
-
-      RigaProdotti(
-        prodotto: item.piatto,
-        numero: "o",
-      ),
-    });
-  }
-}
 
 
-class IndividualItem extends StatelessWidget {
+
+
+class IndividualItem extends StatefulWidget {
   static const routeName = "/idividualItem.dart";
 
   const IndividualItem({super.key});
 
+  @override
+  _IndividualItem createState() => _IndividualItem();
+}
+class _IndividualItem extends State<IndividualItem> {
 
   @override
   Widget build(BuildContext context) {
@@ -111,20 +101,28 @@ class IndividualItem extends StatelessWidget {
                           style: Helper.getTheme(context).displaySmall,
                         ),
                       ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      RigaProdotti(
-                        prodotto: "pizza",
-                        numero: "o",
-                      ),
 
                       SizedBox(
                         height: 30,
                       ),
 
-                      ElencoDeiPiatti(),
+                      FutureBuilder<List<Piatti>>(
+                          future: fetchPiatti(),
+                          builder: (context, snapshot){
+                            if(snapshot.hasData){
+                              return ListView.builder(
+                                  itemCount: snapshot.data!.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    Piatti piatto = snapshot.data![index];
+                                    return Text('${piatto.piatto}',);
+                                  },
 
+                              );
+                            }
+                            return CircularProgressIndicator();
+                          }
+                      ),
 
                       SizedBox(
                         height: 30,
@@ -135,14 +133,7 @@ class IndividualItem extends StatelessWidget {
                           style: Helper.getTheme(context).titleLarge,
                         ),
                       ),
-                      SizedBox(
-                        height: 30,
-                      ),
 
-                      RigaProdotti(
-                          prodotto: "Cola Cola",
-                          numero: "1",
-                      ),
                     ],
                   ),
                 ),
@@ -166,6 +157,33 @@ class IndividualItem extends StatelessWidget {
 
 
 
-  }
+
+
+
+
+//   Future ElencoDeiPiatti() async {
+//     var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/ElencaPiatti.php";
+//
+//
+//     http.Response response = await http.post(Uri.parse(regAPIUrl));
+//
+//     var data = jsonDecode(response as String);
+//
+//     function(response){
+//       response.forEach((item)=>{
+//       Fluttertoast.showToast(
+//       msg: item.piatto,
+//       toastLength: Toast.LENGTH_SHORT,
+//       gravity: ToastGravity.CENTER,
+//       timeInSecForIosWeb: 2,
+//       backgroundColor: Colors.red,
+//       textColor: Colors.white,
+//       fontSize: 16.0
+//       ),
+//       });
+//     }
+//   }
+//
+}
 
 

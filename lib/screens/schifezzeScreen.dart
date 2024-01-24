@@ -73,7 +73,7 @@ class SchifezzeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20,
                           ),
                           SizedBox(
@@ -85,7 +85,7 @@ class SchifezzeScreen extends StatelessWidget {
                               fit: BoxFit.fill,
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20,
                           ),
                           Padding(
@@ -95,7 +95,7 @@ class SchifezzeScreen extends StatelessWidget {
                               style: Helper.getTheme(context).headlineSmall,
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 30,
                           ),
                           Container(
@@ -135,7 +135,7 @@ class SchifezzeScreen extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(
