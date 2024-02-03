@@ -60,9 +60,7 @@ class _IndividualItem extends State<IndividualItem> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context)
-                                        .pushReplacementNamed(
-                                        CategorieScreen.routeName);
+                                    Get.back();
                                   },
                                   child: const Icon(
                                     Icons.arrow_back_ios_rounded,
@@ -70,11 +68,11 @@ class _IndividualItem extends State<IndividualItem> {
                                   ),
                                 ),
                                 Expanded(
-                                  child: Text(
-                                    "Nome Ristorante",
-                                    style: Helper
-                                        .getTheme(context)
-                                        .titleLarge,
+                                    child: Text(
+                                      "McDonald's",
+                                      style: Helper
+                                          .getTheme(context)
+                                          .titleLarge,
                                   ),
                                 ),
                                 Image.asset(
@@ -128,6 +126,7 @@ class _IndividualItem extends State<IndividualItem> {
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
+                                            //if(product.ristoranteId == "1")
                                             Text('${product.piatto}',
                                               style: TextStyle(
                                                 fontSize: 20,
@@ -151,11 +150,7 @@ class _IndividualItem extends State<IndividualItem> {
                                           ],
                                         ),
                                         );
-
-
-
                                   },
-
                                 );
                               }
                               return CircularProgressIndicator();

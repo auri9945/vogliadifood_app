@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:vogliadifood_app/model/ristoranti.dart';
+import 'package:vogliadifood_app/model/ristoranti_api.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 import '../utils/colors.dart';
@@ -206,42 +210,57 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
-                        },
-                        child: RistorantiPopolari(
-                          image: Image.asset(
-                            Helper.getAssetName(
-                                "spaghettipomodorini.jpg", "virtual"),
-                            fit: BoxFit.cover,
-                          ),
-                          name: "la Cucaracia",
-                          categoria: "Pasta",
-                          rate: '4.5',
-                        ),
+
+
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Container(
+                          child: FutureBuilder(
+                            future: fetchRistoranti(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return ListView.builder(
+
+                                  itemCount: snapshot.data?.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (BuildContext context, index) {
+                                    Ristoranti ristorante = snapshot.data![index];
+                                    return Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          GestureDetector(
+                                            onTap: (){
+                                              Get.to(() => {Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName)});
+                                            },
+                                            child: RistorantiPopolari(
+                                              image: Image.asset(
+                                                Helper.getAssetName(
+                                                    "spaghettipomodorini.jpg", "virtual"),
+                                                fit: BoxFit.cover,
+                                              ),
+                                              name:  '${ristorante.nomeRistorante}',
+                                              categoria: "Pasta",
+                                              rate: '4.5',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+                              return CircularProgressIndicator();
+                            },
+                          ),),
+
                       ),
 
-                      RistorantiPopolari(
-                        image: Image.asset(
-                        Helper.getAssetName(
-                            "zucca.jpeg", "virtual"),
-                        fit: BoxFit.cover,
-                      ),
-                        name: "la Zuppa",
-                        categoria: "Salutare",
-                        rate: '4',
-                      ),
-                      RistorantiPopolari(
-                        image: Image.asset(
-                          Helper.getAssetName(
-                              "bowl.jpg", "virtual"),
-                          fit: BoxFit.cover,
-                        ),
-                        name: "Bowl King",
-                        categoria: "Salutare",
-                        rate: '3.8',
-                      ),
+
+
+
+
                     ],
                   ),
                 )
@@ -302,8 +321,11 @@ class RistorantiPopolari extends StatelessWidget {
                   children: [
                     Text(
                      _name,
-                      style:
-                          Helper.getTheme(context).titleLarge,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.Bianco,
+                      ),
                     ),
                   ],
                 ),
