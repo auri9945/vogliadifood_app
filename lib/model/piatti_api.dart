@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 Future<List<Piatti>>  fetchPiatti() async {
-  var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/ElencaPiatti.php";
+  var regAPIUrl = "http://localhost/AndroidProgetto/vogliadifood/ElencaPiatti.php";
   http.Response response = await http.post(Uri.parse(regAPIUrl));
 return pFromJson(response.body);
 

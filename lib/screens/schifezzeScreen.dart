@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
@@ -118,7 +119,7 @@ class SchifezzeScreen extends StatelessWidget {
                                       rate: '4.5',
                                     ),
                                     onTap: (){
-                                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                                     Get.to(IndividualItem());
 
                                     },
                                   ),

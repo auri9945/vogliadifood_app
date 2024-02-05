@@ -5,6 +5,7 @@ import 'package:vogliadifood_app/model/piatti_api.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:vogliadifood_app/model/ristoranti_api.dart';
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
@@ -26,9 +27,16 @@ class IndividualItem extends StatefulWidget {
   _IndividualItem createState() => _IndividualItem();
 }
 class _IndividualItem extends State<IndividualItem> {
+  var arguments = Get.arguments;
+
+  // Map maped = {
+  //   'id': var arguments,
+  // };
+
 
   @override
   Widget build(BuildContext context) {
+    print(arguments);
     return Scaffold(
       body: Stack(
         children: [
@@ -58,10 +66,11 @@ class _IndividualItem extends State<IndividualItem> {
                             ),
                             child: Row(
                               children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Get.back();
-                                  },
+                                ElevatedButton(
+                                  onPressed: () { Get.back(); },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                  ),
                                   child: const Icon(
                                     Icons.arrow_back_ios_rounded,
                                     color: AppColors.Bianco,
@@ -116,7 +125,6 @@ class _IndividualItem extends State<IndividualItem> {
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
                                 return ListView.builder(
-
                                   itemCount: snapshot.data?.length,
                                   shrinkWrap: true,
                                   itemBuilder: (BuildContext context, index) {
@@ -126,8 +134,13 @@ class _IndividualItem extends State<IndividualItem> {
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
-                                            //if(product.ristoranteId == "1")
                                             Text('${product.piatto}',
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: AppColors.Bianco,
+                                                fontWeight: FontWeight.bold,
+                                              ),),
+                                            Text('${product.ristoranteId}',
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 color: AppColors.Bianco,
@@ -146,7 +159,7 @@ class _IndividualItem extends State<IndividualItem> {
                                                 fontSize: 15,
                                                 color: AppColors.Orange,
                                                 fontWeight: FontWeight.bold,
-                                              ),),
+                                              ),)
                                           ],
                                         ),
                                         );
@@ -181,8 +194,7 @@ class _IndividualItem extends State<IndividualItem> {
             ),
           ),
 
-
-          const Positioned(
+          Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavbar(
@@ -192,5 +204,19 @@ class _IndividualItem extends State<IndividualItem> {
         ],
       ),
     );
+  }
+}
+
+Future<void> sendData() async {
+  var url = Uri.parse('http://localhost/AndroidProgetto/vogliadifood/ElencaPiatti.php');
+  var arguments = Get.arguments;
+  var response = await http.post(url, body: {
+    'id': arguments,
+  });
+
+  if (response.statusCode == 200) {
+    print('Data sent successfully: ${response.body}');
+  } else {
+    print('Failed to send data. Status code: ${response.statusCode}');
   }
 }

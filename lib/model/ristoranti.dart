@@ -4,11 +4,16 @@
 
 import 'dart:convert';
 
+
+import 'package:vogliadifood_app/model/piatti_api.dart';
+import 'package:vogliadifood_app/model/piatti.dart';
+
 List<Ristoranti> rFromJson(String str) => List<Ristoranti>.from(json.decode(str).map((x) => Ristoranti.fromMap(x)));
 
 String rToJson(List<Ristoranti> data) => json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
 
 class Ristoranti {
+
   String id;
   String nomeRistorante;
   String tempoConsegna;

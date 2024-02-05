@@ -11,10 +11,17 @@ import '../utils/helper.dart';
 import '../widget/categorieVoglia.dart';
 import 'idividualItem.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const routeName = "/homeScreen";
 
   const HomeScreen({super.key});
+
+  @override
+  _HomeScreen createState() =>  _HomeScreen();
+}
+
+class _HomeScreen extends State<HomeScreen>{
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,37 +77,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: Text("Via Roma, 23 - Torino"),
                       ),
-                      // SizedBox(
-                      //   height: 21,
-                      // ),
-                      // Container(
-                      //   margin: const EdgeInsets.only(left: 20.0),
-                      //   padding: const EdgeInsets.symmetric(
-                      //     horizontal: 20,
-                      //   ),
-                      //   decoration: BoxDecoration(
-                      //       color: Colors.white,
-                      //       borderRadius: BorderRadius.circular(10)),
-                      //   child: DropdownButtonHideUnderline(
-                      //     child: SizedBox(
-                      //       width: 250,
-                      //       child: DropdownButton(
-                      //         value: "current location",
-                      //         items: [
-                      //           DropdownMenuItem(
-                      //             child: Text("Current location"),
-                      //             value: "current location",
-                      //           ),
-                      //         ],
-                      //         icon: Image.asset(
-                      //           Helper.getAssetName("dropdown.png", "virtual"),
-                      //         ),
-                      //         style: Helper.getTheme(context).headline4,
-                      //         onChanged: (value) {},
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                       const SizedBox(
                         height: 30,
                       ),
@@ -230,20 +206,23 @@ class HomeScreen extends StatelessWidget {
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          GestureDetector(
-                                            onTap: (){
-                                              Get.to(() => {Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName)});
-                                            },
-                                            child: RistorantiPopolari(
+                                             RistorantiPopolari(
                                               image: Image.asset(
                                                 Helper.getAssetName(
                                                     "spaghettipomodorini.jpg", "virtual"),
                                                 fit: BoxFit.cover,
                                               ),
                                               name:  '${ristorante.nomeRistorante}',
+                                              time: '${ristorante.tempoConsegna}',
                                               categoria: "Pasta",
                                               rate: '4.5',
                                             ),
+                                          ElevatedButton(
+                                            onPressed: (){
+                                              Get.to(() => IndividualItem(), arguments: '${ristorante.id}' );
+                                            },
+                                            child: Text("view more",
+                                              style: Helper.getTheme(context).headline5,),
                                           ),
                                         ],
                                       ),
@@ -286,15 +265,18 @@ class RistorantiPopolari extends StatelessWidget {
     Key? key,
     required Image image,
     required String name,
+    required String time,
     required String rate,
     required String categoria,
   }) :  _image = image,
         _name = name,
+        _time = time,
         _rate = rate,
         _categoria = categoria,
         super(key: key);
 
   final String _name;
+  final String _time;
   final String _rate;
   final String _categoria;
   final Image _image;
@@ -311,10 +293,10 @@ class RistorantiPopolari extends StatelessWidget {
             width: double.infinity,
             child: _image
           ),
-          const SizedBox(height: 10,),
+          SizedBox(height: 10,),
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 20),
+            EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Row(
@@ -327,29 +309,47 @@ class RistorantiPopolari extends StatelessWidget {
                         color: AppColors.Bianco,
                       ),
                     ),
+                    SizedBox(width: 10,),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 5.0,),
+                      child: Text(
+                        ".",
+                        style: TextStyle(
+                          color: AppColors.Rosso,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    Text(
+                      _time,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.Bianco,
+                      ),
+                    ),
                   ],
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 5,),
                 Row(
                   children: [
                     Image.asset(
                       Helper.getAssetName(
                           "star_filled.png", "virtual"),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 5,
                     ),
                     Text(
                       _rate,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.Orange,
                       ),
                     ),
 
-                    const SizedBox(width: 10,),
-                    const Padding(
+                    SizedBox(width: 10,),
+                    Padding(
                         padding: EdgeInsets.only(bottom: 5.0,),
                       child: Text(
                           ".",
@@ -359,9 +359,12 @@ class RistorantiPopolari extends StatelessWidget {
                       ),
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    SizedBox(width: 10,),
 
                     Text(_categoria),
+                    SizedBox(width: 40,),
+
+
                   ],
                 ),
               ],
@@ -371,5 +374,6 @@ class RistorantiPopolari extends StatelessWidget {
       ),
     );
   }
+
 }
 
