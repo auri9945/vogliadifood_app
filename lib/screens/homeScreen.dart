@@ -4,6 +4,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:vogliadifood_app/model/ristoranti.dart';
 import 'package:vogliadifood_app/model/ristoranti_api.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
+import 'package:vogliadifood_app/screens/casaScreen.dart';
+import 'package:vogliadifood_app/screens/mondoScreen.dart';
+import 'package:vogliadifood_app/screens/salutareScreen.dart';
+import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
@@ -17,247 +21,272 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreen createState() =>  _HomeScreen();
+  _HomeScreen createState() => _HomeScreen();
 }
 
-class _HomeScreen extends State<HomeScreen>{
-
+class _HomeScreen extends State<HomeScreen> {
+  var arguments = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-    children: [
-      SafeArea(
-        child: SingleChildScrollView(
-          child: SizedBox(
-            height: Helper.getScreenHeight(context),
-            width: Helper.getScreenWidth(context),
-            child: Stack(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Image.asset(
-                    Helper.getAssetName("Sfondo_app2.png", "virtual"),
-                    fit: BoxFit.fill,
+        body: Stack(
+      children: [
+        SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              height: Helper.getScreenHeight(context),
+              width: Helper.getScreenWidth(context),
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Image.asset(
+                      Helper.getAssetName("Sfondo_app2.png", "virtual"),
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 40,
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Benvenuto Marino!",
-                              style: Helper.getTheme(context).displaySmall,
-                            ),
-                            Image.asset(
-                              Helper.getAssetName(
-                                  "shopping_cart.png", "virtual"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 20,
-                        ),
-                        child: Text("Via Roma, 23 - Torino"),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const SearchBarBox(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-
-
-
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "In questo momento ho voglia dì...",
-                              style:
-                              Helper.getTheme(context).headlineSmall
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
-                              },
-                              child: const Text("View All"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 150,
-                        padding: const EdgeInsets.only(left: 20),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
                           child: Row(
-
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
-                                      "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Schifezze",
+                              Text(
+                                "Benvenuto Marino!",
+                                style: Helper.getTheme(context).displaySmall,
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName(
-                                      "rotolo-di-maki-con-cetriolo-servito-con-salsa-e-semi-di-sesamo.jpg",
-                                      "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Mondo",
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName("salutare.png", "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Salutare",
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              CategiarieVoglia(
-                                image: Image.asset(
-                                  Helper.getAssetName("casa.png", "virtual"),
-                                  fit: BoxFit.cover,
-                                ),
-                                name: "Casa",
-                              ),
-                              const SizedBox(
-                                width: 10,
+                              Image.asset(
+                                Helper.getAssetName(
+                                    "shopping_cart.png", "virtual"),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                                "Ristoranti popolari",
-                                style:
-                                Helper.getTheme(context).headline6,
-                            ),
-                          ],
+                        const SizedBox(
+                          height: 20,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Text("Via Roma, 23 - Torino"),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const SearchBarBox(),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("In questo momento ho voglia dì...",
+                                  style:
+                                      Helper.getTheme(context).headlineSmall),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacementNamed(
+                                      CategorieScreen.routeName);
+                                },
+                                child: const Text("View All"),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 150,
+                          padding: const EdgeInsets.only(left: 20),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: (){
+                                    Get.to(SchifezzeScreen());
+                                  },
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "cheeseburger-gourmet-alla-griglia-su-tavolo-in-legno-rustico-generato-da-ai.jpg",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Schifezze",
+                                  ),
+                                ),
 
+                                const SizedBox(
+                                  width: 10,
+                                ),
 
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          child: FutureBuilder(
-                            future: fetchRistoranti(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return ListView.builder(
+                                GestureDetector(
+                                  onTap: (){
+                                    Get.to(MondoScreen());
+                                  },
+                                  child:  CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "rotolo-di-maki-con-cetriolo-servito-con-salsa-e-semi-di-sesamo.jpg",
+                                          "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Mondo",
+                                  ),
+                                ),
 
-                                  itemCount: snapshot.data?.length,
-                                  shrinkWrap: true,
-                                  itemBuilder: (BuildContext context, index) {
-                                    Ristoranti ristorante = snapshot.data![index];
-                                    return Padding(
-                                      padding: const EdgeInsets.all(20.0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                             RistorantiPopolari(
+                                const SizedBox(
+                                  width: 10,
+                                ),
+
+                                GestureDetector(
+                                  onTap: (){
+                                    Get.to(SalutareScreen());
+                                  },
+                                  child: CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName(
+                                          "salutare.png", "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Salutare",
+                                  ),
+                                ),
+
+                                const SizedBox(
+                                  width: 10,
+                                ),
+
+                                GestureDetector(
+                                  onTap: (){
+                                    Get.to(CasaScreen());
+                                  },
+                                  child:  CategiarieVoglia(
+                                    image: Image.asset(
+                                      Helper.getAssetName("casa.png", "virtual"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    name: "Casa",
+                                  ),
+                                ),
+
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Ristoranti popolari",
+                                style: Helper.getTheme(context).headline6,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            child: FutureBuilder(
+                              future: fetchRistoranti(arguments),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    itemCount: snapshot.data?.length,
+                                    shrinkWrap: true,
+                                    itemBuilder: (BuildContext context, index) {
+                                      Ristoranti ristorante =
+                                          snapshot.data![index];
+                                      return Padding(
+                                        padding: const EdgeInsets.all(20.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            RistorantiPopolari(
                                               image: Image.asset(
                                                 Helper.getAssetName(
-                                                    "spaghettipomodorini.jpg", "virtual"),
+                                                    "spaghettipomodorini.jpg",
+                                                    "virtual"),
                                                 fit: BoxFit.cover,
                                               ),
-                                              name:  '${ristorante.nomeRistorante}',
-                                              time: '${ristorante.tempoConsegna}',
-                                              categoria: "Pasta",
+                                              name:
+                                                  '${ristorante.nomeRistorante}',
+                                              time:
+                                                  '${ristorante.tempoConsegna}',
+                                              categoria:
+                                                  '${ristorante.categoriaRistorante}',
                                               rate: '4.5',
                                             ),
-                                          ElevatedButton(
-                                            onPressed: (){
-                                              Get.to(() => IndividualItem(), arguments: '${ristorante.id}' );
-                                            },
-                                            child: Text("view more",
-                                              style: Helper.getTheme(context).headline5,),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                              }
-                              return CircularProgressIndicator();
-                            },
-                          ),),
-
-                      ),
-
-
-
-
-
-                    ],
-                  ),
-                )
-              ],
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Get.to(() => IndividualItem(),
+                                                    arguments: '${ristorante.id}');
+                                              },
+                                              child: Text(
+                                                "view more",
+                                                style: Helper.getTheme(context)
+                                                    .headline5,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }
+                                return CircularProgressIndicator();
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 60,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
-      ),
-      const Positioned(
-          bottom:0,
-          left:0,
-          child: CustomNavbar(
-        home: true,
-      )),
-    ],
-   )
-  );
- }
+        const Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavbar(
+              home: true,
+            )),
+      ],
+    ));
+  }
 }
 
 class RistorantiPopolari extends StatelessWidget {
@@ -268,7 +297,7 @@ class RistorantiPopolari extends StatelessWidget {
     required String time,
     required String rate,
     required String categoria,
-  }) :  _image = image,
+  })  : _image = image,
         _name = name,
         _time = time,
         _rate = rate,
@@ -288,30 +317,31 @@ class RistorantiPopolari extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
+          SizedBox(height: 200, width: double.infinity, child: _image),
           SizedBox(
-            height: 200,
-            width: double.infinity,
-            child: _image
+            height: 10,
           ),
-          SizedBox(height: 10,),
           Padding(
-            padding:
-            EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Row(
                   children: [
                     Text(
-                     _name,
+                      _name,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.Bianco,
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: 5.0,),
+                      padding: EdgeInsets.only(
+                        bottom: 5.0,
+                      ),
                       child: Text(
                         ".",
                         style: TextStyle(
@@ -320,7 +350,9 @@ class RistorantiPopolari extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(
                       _time,
                       style: TextStyle(
@@ -331,12 +363,13 @@ class RistorantiPopolari extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 5,),
+                SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Image.asset(
-                      Helper.getAssetName(
-                          "star_filled.png", "virtual"),
+                      Helper.getAssetName("star_filled.png", "virtual"),
                     ),
                     SizedBox(
                       width: 5,
@@ -347,24 +380,28 @@ class RistorantiPopolari extends StatelessWidget {
                         color: AppColors.Orange,
                       ),
                     ),
-
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Padding(
-                        padding: EdgeInsets.only(bottom: 5.0,),
-                      child: Text(
-                          ".",
-                      style: TextStyle(
-                        color: AppColors.Rosso,
-                        fontWeight: FontWeight.w900,
+                      padding: EdgeInsets.only(
+                        bottom: 5.0,
                       ),
+                      child: Text(
+                        ".",
+                        style: TextStyle(
+                          color: AppColors.Rosso,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
-                    SizedBox(width: 10,),
-
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(_categoria),
-                    SizedBox(width: 40,),
-
-
+                    SizedBox(
+                      width: 40,
+                    ),
                   ],
                 ),
               ],
@@ -374,6 +411,4 @@ class RistorantiPopolari extends StatelessWidget {
       ),
     );
   }
-
 }
-

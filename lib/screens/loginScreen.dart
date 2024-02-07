@@ -14,21 +14,18 @@ import '../widget/customTextInput.dart';
 import 'homeScreen.dart';
 import 'package:http/http.dart' as http;
 
-
-
 class LoginScreen extends StatefulWidget {
   static const routeName = "/loginScreen";
 
   const LoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() =>  _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,36 +57,28 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Login",
                     style: Helper.getTheme(context).titleLarge,
                   ),
-
                   SizedBox(
                     height: 10,
                   ),
-
                   Text("Inserisci i tuoi dati per accedere",
                       style: Helper.getTheme(context).headlineSmall),
-
                   SizedBox(
                     height: 40,
                   ),
-
                   CustomTextInput(
                     hintText: "La tua email",
                     controller: _email,
                   ),
-
                   SizedBox(
                     height: 20,
                   ),
-
                   CustomTextInput(
                     hintText: "password",
                     controller: _password,
                   ),
-
                   SizedBox(
                     height: 30,
                   ),
-
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -102,7 +91,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         Login();
-
                       },
                       child: const Text("Login"),
                     ),
@@ -142,42 +130,33 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future Login() async {
-
-    if(_email.text != "" ||  _password.text !=""){
-      try{}
-      catch(e){
+    if (_email.text != "" || _password.text != "") {
+      try {} catch (e) {
         print(e);
       }
-    }
-    else{
+    } else {
       print("Compila tutti i campi");
     }
 
     var regAPIUrl = "http://localhost/AndroidProgetto/vogliadifood/login.php";
     // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
 
-
     Map maped = {
       'email': _email.text,
       'password': _password.text,
     };
 
-    http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
+    http.Response response = await http.post(Uri.parse(regAPIUrl), body: maped);
 
     var data = jsonDecode(response.body);
 
     print("Data: ${data}");
 
-    if(data['success'] == '1'){
+    if (data['success'] == '1') {
       Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
-    }
-    else {
-      Alert(
-          context: context,
-          title: "RFLUTTER ALERT",
-          desc: data['message'])
+    } else {
+      Alert(context: context, title: "RFLUTTER ALERT", desc: data['message'])
           .show();
     }
   }
 }
-

@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vogliadifood_app/model/ristoranti.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
+import '../model/ristoranti_api.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
+import 'idividualItem.dart';
 
-class CasaScreen extends StatelessWidget {
+class CasaScreen extends StatefulWidget {
   static const routeName = "/casaScreen";
 
   const CasaScreen({super.key});
+
+  @override
+  _CasaScreen createState() => _CasaScreen();
+}
+
+class _CasaScreen extends State<CasaScreen> {
+  var arguments = Get.arguments;
+  var categoriaRistorante = "casa";
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +54,13 @@ class CasaScreen extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context)
-                                          .pushReplacementNamed(
-                                          CategorieScreen.routeName);
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
                                     },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                    ),
                                     child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
@@ -56,7 +69,8 @@ class CasaScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Categorie",
-                                      style: Helper.getTheme(context).titleLarge,
+                                      style:
+                                          Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   Image.asset(
@@ -96,28 +110,42 @@ class CasaScreen extends StatelessWidget {
                             width: double.infinity,
                             height: 300,
                             padding: const EdgeInsets.only(left: 20),
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    child: ListaRistorantiCategorie(
-                                      image: Image.asset(
-                                        Helper.getAssetName("casa.png", "virtual"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      name: "Cà Dij Mat",
-                                      categoria: "ristorante",
-                                      rate: '5',
-                                    ),
-                                    onTap: (){
-
-                                    },
-                                  )
-
-                                ],
-                              ),
-                            ),
+                            child: FutureBuilder(
+                                future: fetchReadOneR(categoriaRistorante),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return ListView.builder(
+                                        itemCount: snapshot.data?.length,
+                                        shrinkWrap: true,
+                                        itemBuilder:
+                                            (BuildContext context, index) {
+                                          Ristoranti ristorante =
+                                              snapshot.data![index];
+                                          return Row(
+                                            children: <Widget>[
+                                              GestureDetector(
+                                                child: ListaRistorantiCategorie(
+                                                  image: Image.asset(
+                                                    Helper.getAssetName(
+                                                        "casa.png", "virtual"),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                  name: "Cà Dij Mat",
+                                                  categoria: "ristorante",
+                                                  rate: '5',
+                                                ),
+                                                onTap: () {
+                                                  Get.to(() => IndividualItem(),
+                                                      arguments:
+                                                          '${ristorante.id}');
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        });
+                                  }
+                                  return CircularProgressIndicator();
+                                }),
                           ),
                         ],
                       ),
@@ -139,4 +167,3 @@ class CasaScreen extends StatelessWidget {
     );
   }
 }
-

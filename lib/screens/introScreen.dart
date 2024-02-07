@@ -9,7 +9,6 @@ class IntroScreen extends StatelessWidget {
 
   const IntroScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +29,7 @@ class IntroScreen extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-
             Align(
-
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -47,18 +44,20 @@ class IntroScreen extends StatelessWidget {
                       "Inizia ora a soddisfare le tue Vogliedì...",
                       style: Helper.getTheme(context).headlineSmall,
                     ),
-                    const SizedBox(height: 30,),
-
+                    const SizedBox(
+                      height: 30,
+                    ),
                     SizedBox(
                       width: 150,
                       height: 50,
-                      child:
-                      ElevatedButton(
+                      child: ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
-                          foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                          backgroundColor:
+                              MaterialStateProperty.all(AppColors.Rosso),
+                          foregroundColor:
+                              MaterialStateProperty.all(AppColors.Bianco),
                         ),
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.of(context)
                               .pushReplacementNamed(HomeScreen.routeName);
                         },

@@ -6,14 +6,23 @@ import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
+import '../model/ristoranti.dart';
+import '../model/ristoranti_api.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 
-class SchifezzeScreen extends StatelessWidget {
+class SchifezzeScreen extends StatefulWidget {
   static const routeName = "/schifezzeScreen";
 
   const SchifezzeScreen({super.key});
 
+  @override
+  _SchifezzeScreen createState() => _SchifezzeScreen();
+}
+
+class _SchifezzeScreen extends State<SchifezzeScreen> {
+  var arguments = Get.arguments;
+  var categoriaRistorante = "schifezze";
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +55,13 @@ class SchifezzeScreen extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).pushReplacementNamed(CategorieScreen.routeName);
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
                                     },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                    ),
                                     child: const Icon(
                                       Icons.arrow_back_ios_rounded,
                                       color: AppColors.Bianco,
@@ -58,12 +70,15 @@ class SchifezzeScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       "Categorie",
-                                      style: Helper.getTheme(context).titleLarge,
+                                      style:
+                                          Helper.getTheme(context).titleLarge,
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: (){
-                                      Navigator.of(context).pushReplacementNamed(RiepilogoScreen.routeName);
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .pushReplacementNamed(
+                                              RiepilogoScreen.routeName);
                                     },
                                     child: Image.asset(
                                       Helper.getAssetName(
@@ -103,30 +118,42 @@ class SchifezzeScreen extends StatelessWidget {
                             width: double.infinity,
                             height: 300,
                             padding: const EdgeInsets.only(left: 20),
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    child:ListaRistorantiCategorie(
-                                      image: Image.asset(
-                                        Helper.getAssetName(
-                                            "mc.png", "virtual"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      name: "McDonalds",
-                                      categoria: "Fast Food",
-                                      rate: '4.5',
-                                    ),
-                                    onTap: (){
-                                     Get.to(IndividualItem());
-
-                                    },
-                                  ),
-
-                                ],
-                              ),
-                            ),
+                            child: FutureBuilder(
+                                future: fetchReadOneR(categoriaRistorante),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return ListView.builder(
+                                        itemCount: snapshot.data?.length,
+                                        shrinkWrap: true,
+                                        itemBuilder:
+                                            (BuildContext context, index) {
+                                          Ristoranti ristorante =
+                                              snapshot.data![index];
+                                          return Row(
+                                            children: <Widget>[
+                                              GestureDetector(
+                                                child: ListaRistorantiCategorie(
+                                                  image: Image.asset(
+                                                    Helper.getAssetName(
+                                                        "mc.png", "virtual"),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                  name: "McDonalds",
+                                                  categoria: "Fast Food",
+                                                  rate: '4.5',
+                                                ),
+                                                onTap: () {
+                                                  Get.to(() => IndividualItem(),
+                                                      arguments:
+                                                          '${ristorante.id}');
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        });
+                                  }
+                                  return CircularProgressIndicator();
+                                }),
                           ),
                         ],
                       ),
@@ -148,4 +175,3 @@ class SchifezzeScreen extends StatelessWidget {
     );
   }
 }
-

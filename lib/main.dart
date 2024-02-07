@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+//import 'package:hive/hive.dart';
+//import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:hive_flutter/adapters.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
       // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // useMaterial3: true,
 
-      home: SplashScreen(),
+      home: HomeScreen(),
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),

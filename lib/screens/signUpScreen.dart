@@ -13,11 +13,10 @@ import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/customTextInput.dart';
 
-
 class SignUpScreen extends StatefulWidget {
   static const routeName = "/signUpScreen";
 
-  const SignUpScreen({Key?key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -27,8 +26,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _indirizzo = TextEditingController();
   TextEditingController _password = TextEditingController();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,18 +62,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       "Registrati",
                       style: Helper.getTheme(context).headline6,
                     ),
-
                     SizedBox(
                       height: 10,
                     ),
-
                     Text("Inserisci i tuoi dati per creare il tuo account",
-                        style: Helper.getTheme(context).headline5
-                    ),
+                        style: Helper.getTheme(context).headline5),
                     SizedBox(
                       height: 40,
                     ),
-
                     CustomTextInput(
                       hintText: "La tua email",
                       controller: _email,
@@ -84,7 +77,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: 20,
                     ),
-
                     CustomTextInput(
                       hintText: "il tuo indirizzo",
                       controller: _indirizzo,
@@ -92,29 +84,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: 20,
                     ),
-
                     CustomTextInput(
                       hintText: "inserisci password",
                       controller: _password,
-
-
                     ),
                     SizedBox(
                       height: 20,
-
                     ),
-
-
                     SizedBox(
                       width: double.infinity,
                       height: 50,
-                      child:
-                      ElevatedButton(
+                      child: ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(AppColors.Rosso),
-                          foregroundColor: MaterialStateProperty.all(AppColors.Bianco),
+                          backgroundColor:
+                              MaterialStateProperty.all(AppColors.Rosso),
+                          foregroundColor:
+                              MaterialStateProperty.all(AppColors.Bianco),
                         ),
-                        onPressed: (){
+                        onPressed: () {
                           Registrazione();
 
                           //Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
@@ -122,10 +109,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Text("Registrati"),
                       ),
                     ),
-
-                    SizedBox(height: 30,),
+                    SizedBox(
+                      height: 30,
+                    ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.of(context)
                             .pushReplacementNamed(LoginScreen.routeName);
                       },
@@ -134,9 +122,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Text("Hai già un account?",
                               style: Helper.getTheme(context).headline5),
-                          SizedBox(width: 10,),
-                          Text("Login",
-                            style: TextStyle(color: AppColors.Orange, fontWeight: FontWeight.bold),),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Login",
+                            style: TextStyle(
+                                color: AppColors.Orange,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
                     )
@@ -144,7 +138,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-
           ],
         ),
       ),
@@ -152,20 +145,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future Registrazione() async {
-
-    if(_email.text != "" || _indirizzo.text != "" || _password.text !=""){
-      try{}
-      catch(e){
+    if (_email.text != "" || _indirizzo.text != "" || _password.text != "") {
+      try {} catch (e) {
         print(e);
       }
-    }
-    else{
+    } else {
       print("please all the files");
     }
 
-    var regAPIUrl = "http://localhost/AndroidProgetto/Vogliadifood/registrazione.php";
+    var regAPIUrl =
+        "http://localhost/AndroidProgetto/Vogliadifood/registrazione.php";
     // var regAPIUrl = "C:/xampp/htdocs/AndroidProgetto/vogliadifood/registrazione.php";
-
 
     Map maped = {
       'email': _email.text,
@@ -173,28 +163,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
       'password': _password.text,
     };
 
-
-    http.Response response = await http.post(Uri.parse(regAPIUrl),body: maped);
+    http.Response response = await http.post(Uri.parse(regAPIUrl), body: maped);
 
     var data = jsonDecode(response.body);
 
     print("Data: ${data}");
-    if(data['success'] == '1'){
+    if (data['success'] == '1') {
       Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
-    }
-    else {
-      Alert(
-          context: context,
-          title: "RFLUTTER ALERT",
-          desc: data['message'])
+    } else {
+      Alert(context: context, title: "RFLUTTER ALERT", desc: data['message'])
           .show();
     }
   }
 }
-
-
-
-
-
-
-
