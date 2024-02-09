@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vogliadifood_app/model/ristoranti.dart';
 import 'package:vogliadifood_app/model/ristoranti_api.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 
+import '../controller/carello_controller.dart';
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
@@ -27,7 +29,12 @@ class IndividualItem extends StatefulWidget {
 }
 
 class _IndividualItem extends State<IndividualItem> {
+  final carelloController = Get.put(CarelloController());
+  late final int index;
   var arguments = Get.arguments;
+  bool carello = false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +165,9 @@ class _IndividualItem extends State<IndividualItem> {
                                                 height: 10,
                                               ),
                                               ElevatedButton(
-                                                onPressed: () {},
+                                                onPressed: (() {
+                                                  carelloController.addPiatti(Piatti.piatto[product.id]);
+                                                }),
                                                 child: Text(
                                                   "+ Aggiungi al carello",
                                                   style:
@@ -225,7 +234,9 @@ class _IndividualItem extends State<IndividualItem> {
                                                 height: 5,
                                               ),
                                               ElevatedButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+
+                                                },
                                                 child: Text(
                                                   "+ Aggiungi al carello",
                                                   style:

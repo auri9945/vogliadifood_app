@@ -8,10 +8,19 @@ import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 
-class RiepilogoScreen extends StatelessWidget {
+class RiepilogoScreen extends StatefulWidget {
   static const routeName = "/riepilogoScreen";
 
   const RiepilogoScreen({super.key});
+
+  @override
+  _RiepilogoScreen createState() => _RiepilogoScreen();
+
+}
+
+class  _RiepilogoScreen extends State<RiepilogoScreen> {
+  var arguments = Get.arguments;
+
 
   @override
   Widget build(BuildContext context) {
@@ -123,3 +132,4 @@ class RiepilogoScreen extends StatelessWidget {
     );
   }
 }
+
