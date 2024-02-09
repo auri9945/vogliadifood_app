@@ -7,6 +7,7 @@ import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
+import 'package:vogliadifood_app/screens/paymentScreen.dart';
 import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
         IndividualItem.routeName: (context) => IndividualItem(),
         ProfiloScreen.routeName: (context) => ProfiloScreen(),
         RiepilogoScreen.routeName: (context) => RiepilogoScreen(),
-        // PaymentScreen.routeName: (context) => PaymentScreen(),
+        PaymentScreen.routeName: (context) => PaymentScreen(),
         // NotificationScreen.routeName: (context) => NotificationScreen(),
         // AboutScreen.routeName: (context) => AboutScreen(),
         // InboxScreen.routeName: (context) => InboxScreen(),

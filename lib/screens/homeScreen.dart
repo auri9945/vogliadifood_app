@@ -6,6 +6,7 @@ import 'package:vogliadifood_app/model/ristoranti_api.dart';
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/mondoScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
@@ -65,9 +66,17 @@ class _HomeScreen extends State<HomeScreen> {
                                 "Benvenuto Marino!",
                                 style: Helper.getTheme(context).displaySmall,
                               ),
-                              Image.asset(
-                                Helper.getAssetName(
-                                    "shopping_cart.png", "virtual"),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed(
+                                      RiepilogoScreen.routeName);
+                                },
+                                child: Image.asset(
+                                  Helper.getAssetName(
+                                      "shopping_cart.png", "virtual"),
+                                ),
+
                               ),
                             ],
                           ),

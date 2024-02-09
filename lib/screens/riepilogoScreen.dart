@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
+import 'package:vogliadifood_app/screens/paymentScreen.dart';
 import 'package:vogliadifood_app/widget/rigaProdotti.dart';
 
 import '../utils/colors.dart';
@@ -92,7 +93,11 @@ class RiepilogoScreen extends StatelessWidget {
                           width: 200,
                           child: ElevatedButton(
                             style: const ButtonStyle(),
-                            onPressed: () {},
+                            onPressed: () {
+                                Navigator.of(context)
+                                    .pushReplacementNamed(
+                                    PaymentScreen.routeName);
+                              },
                             child: Text(
                               "Procedi al pagamento",
                               style: Helper.getTheme(context).headlineSmall,
