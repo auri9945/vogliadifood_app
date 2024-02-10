@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vogliadifood_app/controller/carello_controller.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/paymentScreen.dart';
 import 'package:vogliadifood_app/widget/rigaProdotti.dart';
@@ -7,24 +8,20 @@ import 'package:vogliadifood_app/widget/rigaProdotti.dart';
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
+import '../widget/carrello_prodotti.dart';
 
-class RiepilogoScreen extends StatefulWidget {
+class RiepilogoScreen extends StatelessWidget {
   static const routeName = "/riepilogoScreen";
 
-  const RiepilogoScreen({super.key});
-
-  @override
-  _RiepilogoScreen createState() => _RiepilogoScreen();
-
-}
-
-class  _RiepilogoScreen extends State<RiepilogoScreen> {
+  RiepilogoScreen({Key? key}) : super(key: key);
+  final controller = Get.put(CarelloController());
   var arguments = Get.arguments;
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Carrello"),elevation: 0,),
       body: Stack(
         children: [
           SafeArea(
@@ -44,40 +41,6 @@ class  _RiepilogoScreen extends State<RiepilogoScreen> {
                   SingleChildScrollView(
                     child: Column(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.only(top: 30),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                            ),
-                            child: Row(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                  ),
-                                  child: const Icon(
-                                    Icons.arrow_back_ios_rounded,
-                                    color: AppColors.Bianco,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    "Back",
-                                    style: Helper.getTheme(context).titleLarge,
-                                  ),
-                                ),
-                                Image.asset(
-                                  Helper.getAssetName(
-                                      "shopping_cart.png", "virtual"),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
                         const SizedBox(
                           height: 50,
                         ),
@@ -90,10 +53,9 @@ class  _RiepilogoScreen extends State<RiepilogoScreen> {
                         const SizedBox(
                           height: 50,
                         ),
-                        RigaProdotti(
-                          prodotto: "pizza",
-                          numero: "2",
-                        ),
+
+                        CarrelloProdotti(),
+
                         const SizedBox(
                           height: 50,
                         ),

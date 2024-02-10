@@ -135,7 +135,8 @@ class _CasaScreen extends State<CasaScreen> {
                                                   rate: '5',
                                                 ),
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
+
+                                                  Get.toNamed(('/idividualItem.dart'),
                                                       arguments:
                                                           '${ristorante.id}');
                                                 },

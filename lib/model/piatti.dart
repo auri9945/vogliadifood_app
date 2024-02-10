@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 
-List<Piatti> pFromJson(String str) => List<Piatti>.from(json.decode(str).map((x) => Piatti.fromMap(x)));
+ List<Piatti> pFromJson(String str) => List<Piatti>.from(json.decode(str).map((x) => Piatti.fromMap(x)));
 
 String pToJson(List<Piatti> data) => json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
 

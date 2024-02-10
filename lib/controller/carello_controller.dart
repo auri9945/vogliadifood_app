@@ -3,6 +3,7 @@ import 'package:vogliadifood_app/model/piatti.dart';
 
 
 class CarelloController extends GetxController {
+
   final _piatti = {}.obs;
 
   void addPiatti(Piatti product){
@@ -14,3 +15,4 @@ class CarelloController extends GetxController {
   }
   get product => _piatti;
 }
+

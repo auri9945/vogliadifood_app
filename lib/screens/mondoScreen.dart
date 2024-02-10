@@ -125,9 +125,8 @@ class _MondoScreen extends State<MondoScreen> {
                                             children: <Widget>[
                                               GestureDetector(
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                          '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                                 child: ListaRistorantiCategorie(
                                                   image: Image.asset(

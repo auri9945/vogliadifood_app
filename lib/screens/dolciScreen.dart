@@ -125,10 +125,8 @@ class _DolciScreen extends State<DolciScreen> {
                                               children: <Widget>[
                                                 GestureDetector(
                                                   onTap: () {
-                                                    Get.to(
-                                                        () => IndividualItem(),
-                                                        arguments:
-                                                            '${ristorante.id}');
+                                                    Get.toNamed(('/idividualItem.dart'),
+                                                        arguments: '${ristorante.id}');
                                                   },
                                                   child:
                                                       ListaRistorantiCategorie(

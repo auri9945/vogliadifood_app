@@ -135,9 +135,8 @@ class _GourmetScreen extends State<GourmetScreen> {
                                                 ),
 
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                      '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                               ),
                                             ],

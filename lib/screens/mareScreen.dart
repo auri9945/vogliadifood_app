@@ -133,9 +133,8 @@ class _MareScreen extends State<MareScreen> {
                                                   rate: '5',
                                                 ),
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                      '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                               ),
                                             ],

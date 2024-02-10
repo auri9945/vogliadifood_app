@@ -256,7 +256,7 @@ class _HomeScreen extends State<HomeScreen> {
                                             ),
                                             ElevatedButton(
                                               onPressed: () {
-                                                Get.to(() => IndividualItem(),
+                                                Get.toNamed(('/idividualItem.dart'),
                                                     arguments: '${ristorante.id}');
                                               },
                                               child: Text(

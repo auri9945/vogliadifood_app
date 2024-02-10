@@ -136,9 +136,8 @@ class _FusionScreen extends State<FusionScreen> {
                                                   rate: '4.2',
                                                 ),
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                          '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                               )
                                             ],

@@ -137,9 +137,8 @@ class _VeggieScreen extends State<VeggieScreen> {
                                                   rate: '4,7',
                                                 ),
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                          '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                               )
                                             ],

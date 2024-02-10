@@ -143,9 +143,8 @@ class _SchifezzeScreen extends State<SchifezzeScreen> {
                                                   rate: '4.5',
                                                 ),
                                                 onTap: () {
-                                                  Get.to(() => IndividualItem(),
-                                                      arguments:
-                                                          '${ristorante.id}');
+                                                  Get.toNamed(('/idividualItem.dart'),
+                                                      arguments: '${ristorante.id}');
                                                 },
                                               ),
                                             ],

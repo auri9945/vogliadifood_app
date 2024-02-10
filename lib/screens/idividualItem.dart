@@ -1,11 +1,12 @@
 import 'dart:convert';
+import 'package:badges/badges.dart';
 import 'package:vogliadifood_app/model/bevande.dart';
 import 'package:vogliadifood_app/model/bevande_api.dart';
 import 'package:vogliadifood_app/model/piatti.dart';
 import 'package:vogliadifood_app/model/piatti_api.dart';
 
 import 'package:flutter/material.dart';
-
+import 'package:badges/badges.dart' as badges;
 import 'package:get/get.dart';
 import 'package:vogliadifood_app/model/ristoranti.dart';
 import 'package:vogliadifood_app/model/ristoranti_api.dart';
@@ -29,17 +30,40 @@ class IndividualItem extends StatefulWidget {
 }
 
 class _IndividualItem extends State<IndividualItem> {
-  final carelloController = Get.put(CarelloController());
+  final controller = Get.put(CarelloController());
   late final int index;
   var arguments = Get.arguments;
-  bool carello = false;
-
 
 
   @override
   Widget build(BuildContext context) {
     //print(arguments);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Vogliadì"),
+        centerTitle: true,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 25, top: 9),
+            child: Obx(
+              () => InkWell(
+                  onTap: () => Get.to(() => RiepilogoScreen()),
+                  child: badges.Badge(
+                      badgeContent: Text(
+                        "${controller.product.length}",
+                        style: TextStyle(color: AppColors.Bianco),
+                      ),
+                      badgeStyle: badges.BadgeStyle(
+                        padding: const EdgeInsets.all(3.10),
+                      ),
+                      showBadge: controller.product.length > 0,
+                      position: BadgePosition.topEnd(top: -10, end: 20),
+                      child: const Icon(Icons.shopping_cart_outlined))),
+            ),
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -60,41 +84,6 @@ class _IndividualItem extends State<IndividualItem> {
                     SingleChildScrollView(
                       child: Column(
                         children: [
-                          Container(
-                            padding: const EdgeInsets.only(top: 30),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                              ),
-                              child: Row(
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.transparent,
-                                    ),
-                                    child: const Icon(
-                                      Icons.arrow_back_ios_rounded,
-                                      color: AppColors.Bianco,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Listino prezzi",
-                                      style:
-                                          Helper.getTheme(context).titleLarge,
-                                    ),
-                                  ),
-                                  Image.asset(
-                                    Helper.getAssetName(
-                                        "shopping_cart.png", "virtual"),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
                           SizedBox(
                             width: double.infinity,
                             height: 250,
@@ -166,8 +155,10 @@ class _IndividualItem extends State<IndividualItem> {
                                               ),
                                               ElevatedButton(
                                                 onPressed: (() {
-                                                  carelloController.addPiatti(product);
+                                                  controller.addPiatti(product);
+                                                  Arguments: '${product.id}';
                                                 }),
+
                                                 child: Text(
                                                   "+ Aggiungi al carello",
                                                   style:
@@ -234,9 +225,7 @@ class _IndividualItem extends State<IndividualItem> {
                                                 height: 5,
                                               ),
                                               ElevatedButton(
-                                                onPressed: () {
-
-                                                },
+                                                onPressed: (() {}),
                                                 child: Text(
                                                   "+ Aggiungi al carello",
                                                   style:
