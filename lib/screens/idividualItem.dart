@@ -166,7 +166,7 @@ class _IndividualItem extends State<IndividualItem> {
                                               ),
                                               ElevatedButton(
                                                 onPressed: (() {
-                                                  carelloController.addPiatti(Piatti.piatto[product.id]);
+                                                  carelloController.addPiatti(product);
                                                 }),
                                                 child: Text(
                                                   "+ Aggiungi al carello",
