@@ -7,7 +7,7 @@ import 'package:vogliadifood_app/model/ristoranti.dart';
 
 Future<List<Ristoranti>>  fetchRistoranti(String? arguments) async {
 
-  var regAPIUrl = "http://localhost/AndroidProgetto/vogliadifood/ElencaRistoranti.php";
+  var regAPIUrl = "http://localhost/AndroidProgetto/vogliadifood/ElencoRistoranti.php";
   http.Response response = await http.post(Uri.parse(regAPIUrl));
   // return rFromJson(response.body);
 
