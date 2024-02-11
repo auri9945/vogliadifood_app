@@ -56,10 +56,19 @@ class RiepilogoScreen extends StatelessWidget {
                         // Mostra tutti i prodotti selezionati
                         Obx(() => Column(
                           children: controller.selectedProducts.map((product) {
-                            return CarrelloProdottoItem(
+                            return CarrelloPiattiItem(
                               controller: controller,
                               product: product,
                               index: controller.selectedProducts.indexOf(product),
+                            );
+                          }).toList(),
+                        ),),
+                        Obx(() => Column(
+                          children: controller.selectedBevande.map((product) {
+                            return CarrelloBevandeiItem(
+                              controller: controller,
+                              product: product,
+                              index: controller.selectedBevande.indexOf(product),
                             );
                           }).toList(),
                         ),),

@@ -12,26 +12,26 @@ String bToJson(List<Bevande> data) => json.encode(List<dynamic>.from(data.map((x
 
 class Bevande {
 
-  String bevandeId;
+  String id;
   String bevanda;
   String prezzo;
 
 
   Bevande({
-    required this.bevandeId,
+    required this.id,
     required this.bevanda,
     required this.prezzo,
 
   });
 
   factory Bevande.fromMap(Map<String, dynamic> json) => Bevande(
-    bevandeId: json["bevanda_id"],
+    id: json["id"],
     bevanda: json["bevanda"],
     prezzo: json["prezzo"],
   );
 
   Map<String, dynamic> toMap() => {
-    "bevanda_id": bevandeId,
+    "id": id,
     "bevanda": bevanda,
     "prezzo": prezzo,
   };

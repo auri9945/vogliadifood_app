@@ -34,11 +34,46 @@ class _IndividualItem extends State<IndividualItem> {
   var arguments = Get.arguments;
 
 
+
+  // //print(arguments);
+  // return Scaffold(
+  // appBar: AppBar(
+  // title: const Text("Vogliadì"),
+  // centerTitle: true,
+  // elevation: 0,
+  // actions: [
+  // Padding(
+  // padding: const EdgeInsets.only(right: 25, top: 9),
+  // child: Obx(
+  // () => InkWell(
+  // onTap: () => Get.to(() => RiepilogoScreen()),
+  // child: badges.Badge(
+  // badgeContent: Text(
+  // "${controller.selectedProducts.length}",
+  // style: TextStyle(color: AppColors.Bianco),
+  // ),
+  // badgeStyle: badges.BadgeStyle(
+  // padding: const EdgeInsets.all(3.10),
+  // ),
+  // showBadge: controller.selectedProducts.length > 0,
+  // position: BadgePosition.topEnd(top: -10, end: 20),
+  // child: const Icon(Icons.shopping_cart_outlined))),
+  // ),
+  // ),
+  // ],
+  // ),
+
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(CarelloController());
     late final int index;
     var arguments = Get.arguments;
+
+
+    final int selectProduct =controller.selectedProducts.length ;
+    final int selectBevande =controller.selectedBevande.length;
+    final int selectProdotti = selectProduct + selectBevande;
 
     //print(arguments);
     return Scaffold(
@@ -54,13 +89,13 @@ class _IndividualItem extends State<IndividualItem> {
                   onTap: () => Get.to(() => RiepilogoScreen()),
                   child: badges.Badge(
                       badgeContent: Text(
-                        "${controller.selectedProducts.length}",
+                        "$selectProdotti",
                         style: TextStyle(color: AppColors.Bianco),
                       ),
                       badgeStyle: badges.BadgeStyle(
                         padding: const EdgeInsets.all(3.10),
                       ),
-                      showBadge: controller.selectedProducts.length > 0,
+                      showBadge: selectProdotti > 0,
                       position: BadgePosition.topEnd(top: -10, end: 20),
                       child: const Icon(Icons.shopping_cart_outlined))),
             ),
@@ -159,7 +194,6 @@ class _IndividualItem extends State<IndividualItem> {
                                               ElevatedButton(
                                                 onPressed: (() {
                                                   controller.addPiatti(product);
-                                                  //Arguments: '${product.id}';
                                                 }),
 
                                                 child: Text(
@@ -229,7 +263,9 @@ class _IndividualItem extends State<IndividualItem> {
                                                 height: 5,
                                               ),
                                               ElevatedButton(
-                                                onPressed: (() {}),
+                                                onPressed: (() {
+                                                  controller.addBevande(bevande);
+                                                }),
                                                 child: Text(
                                                   "+ Aggiungi al carello",
                                                   style:
