@@ -4,11 +4,13 @@ import 'package:vogliadifood_app/controller/carello_controller.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/paymentScreen.dart';
 import 'package:vogliadifood_app/widget/rigaProdotti.dart';
+import 'package:vogliadifood_app/widget/cart_total.dart';
 
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 import '../widget/carrello_prodotti.dart';
+import '../widget/cart_total.dart';
 
 class RiepilogoScreen extends StatelessWidget {
   static const routeName = "/riepilogoScreen";
@@ -50,15 +52,30 @@ class RiepilogoScreen extends StatelessWidget {
                             style: Helper.getTheme(context).displaySmall,
                           ),
                         ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-
-                        CarrelloProdotti(),
-
-                        const SizedBox(
-                          height: 50,
-                        ),
+                        const SizedBox(height: 50),
+                        // Mostra tutti i prodotti selezionati
+                        Obx(() => Column(
+                          children: controller.selectedProducts.map((product) {
+                            return CarrelloProdottoItem(
+                              controller: controller,
+                              product: product,
+                              index: controller.selectedProducts.indexOf(product),
+                            );
+                          }).toList(),
+                        ),),
+                        const SizedBox(height: 20),
+                        // Visualizza il totale
+                       // CartTotal(),
+                    Container(
+                      child: Obx(() => Text(
+                        "Totale: \€${controller.totalPrice.toStringAsFixed(2)}",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                      )),
+                        const SizedBox(height: 50),
                         SizedBox(
                           height: 50,
                           width: 200,
@@ -66,8 +83,7 @@ class RiepilogoScreen extends StatelessWidget {
                             style: const ButtonStyle(),
                             onPressed: () {
                                 Navigator.of(context)
-                                    .pushReplacementNamed(
-                                    PaymentScreen.routeName);
+                                    .pushReplacementNamed(PaymentScreen.routeName);
                               },
                             child: Text(
                               "Procedi al pagamento",

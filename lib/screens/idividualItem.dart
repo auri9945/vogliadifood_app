@@ -22,13 +22,12 @@ import 'package:http/http.dart' as http;
 
 class IndividualItem extends StatefulWidget {
   static const routeName = "/idividualItem.dart";
+  const IndividualItem({Key? key}); //: super(key: key);
 
-  const IndividualItem({super.key});
-
+  //String? get arguments => null;
   @override
   _IndividualItem createState() => _IndividualItem();
 }
-
 class _IndividualItem extends State<IndividualItem> {
   final controller = Get.put(CarelloController());
   late final int index;
@@ -37,6 +36,10 @@ class _IndividualItem extends State<IndividualItem> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CarelloController());
+    late final int index;
+    var arguments = Get.arguments;
+
     //print(arguments);
     return Scaffold(
       appBar: AppBar(
@@ -51,13 +54,13 @@ class _IndividualItem extends State<IndividualItem> {
                   onTap: () => Get.to(() => RiepilogoScreen()),
                   child: badges.Badge(
                       badgeContent: Text(
-                        "${controller.product.length}",
+                        "${controller.selectedProducts.length}",
                         style: TextStyle(color: AppColors.Bianco),
                       ),
                       badgeStyle: badges.BadgeStyle(
                         padding: const EdgeInsets.all(3.10),
                       ),
-                      showBadge: controller.product.length > 0,
+                      showBadge: controller.selectedProducts.length > 0,
                       position: BadgePosition.topEnd(top: -10, end: 20),
                       child: const Icon(Icons.shopping_cart_outlined))),
             ),
@@ -108,7 +111,7 @@ class _IndividualItem extends State<IndividualItem> {
                           Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: Container(
-                              child: FutureBuilder(
+                              child:FutureBuilder(
                                 future: fetchPiatti(arguments),
                                 builder: (context, snapshot) {
                                   if (snapshot.hasData) {
@@ -156,7 +159,7 @@ class _IndividualItem extends State<IndividualItem> {
                                               ElevatedButton(
                                                 onPressed: (() {
                                                   controller.addPiatti(product);
-                                                  Arguments: '${product.id}';
+                                                  //Arguments: '${product.id}';
                                                 }),
 
                                                 child: Text(
@@ -172,7 +175,8 @@ class _IndividualItem extends State<IndividualItem> {
                                       },
                                     );
                                   }
-                                  return CircularProgressIndicator();
+    return CircularProgressIndicator();
+
                                 },
                               ),
                             ),

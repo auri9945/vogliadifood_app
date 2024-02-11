@@ -6,39 +6,43 @@ import 'package:vogliadifood_app/model/piatti_api.dart';
 import '../model/piatti.dart';
 import '../utils/colors.dart';
 
+
 class CarrelloProdotti extends StatelessWidget {
   final CarelloController controller = Get.find();
+  CarrelloProdotti({Key? key, required this.arguments}) : super(key: key);
 
-  CarrelloProdotti({Key? key}) : super(key: key);
-
-  var arguments = Get.arguments;
+  final dynamic arguments;
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-          () =>
-      controller.product.length > 0 ?
-
-          FutureBuilder(
-              future: fetchPiatti(arguments),
-              builder: (context, snapshot){
-                if (snapshot.hasData) {
-                ListView.builder(
-                  itemCount: controller.product.length,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, index) {
-                    Piatti product = controller.product[index];
-                    return CarrelloProdottoItem(
-                      controller: controller,
-                      product: product,
-                      //       quntity:controller.product.values.toList()[index],
-                      index: index,
-                    );
-                  },
+    return Obx(() => controller.selectedProducts.isNotEmpty
+        ? FutureBuilder<List<Piatti>>(
+          future: fetchPiatti(arguments),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text(
+                'Errore durante il recupero dei dati: ${snapshot.error}');
+          } else if (snapshot.hasData && snapshot.data != null) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, index) {
+                Piatti product = snapshot.data![index];
+                return CarrelloProdottoItem(
+                  controller: controller,
+                  product: product,
+                  index: index,
                 );
-              }
-                return CircularProgressIndicator();
-              })
+              },
+            );
+          } else {
+            return Text('Nessun dato disponibile');
+          }
+          //  return CircularProgressIndicator();
+        },
+              )
 
        : const SizedBox(
         height: 800,
@@ -54,12 +58,14 @@ class CarrelloProdotti extends StatelessWidget {
 class CarrelloProdottoItem extends StatelessWidget {
   final CarelloController controller;
   final Piatti product;
-
   // final int quantity;
   final int index;
 
   const CarrelloProdottoItem({
-    Key? key, required this.index, required this.controller, required this.product})
+    Key? key,
+    required this.index,
+    required this.controller,
+    required this.product})
       : super(key: key);
 
   @override
@@ -80,14 +86,14 @@ class CarrelloProdottoItem extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(child: Text(
-            '${product.descrizione}',
-            style: TextStyle(
-              fontSize: 15,
-              color: AppColors.Bianco,
-            ),
-          ),
-          ),
+          // Expanded(child: Text(
+          //   '${product.descrizione}',
+          //   style: TextStyle(
+          //     fontSize: 15,
+          //     color: AppColors.Bianco,
+          //   ),
+          // ),
+          // ),
 
 
           Expanded(
@@ -100,18 +106,12 @@ class CarrelloProdottoItem extends StatelessWidget {
               ),
             ),),
 
-          /* IconButton(
-            onPressed: (){
-              controller.removeProduct(product);              },
-            icon: const Icon(Icons.remove_circle),
-          ), */
-          //    Text("$quantity"),
           IconButton(
-            onPressed: () {
-              controller.addPiatti(product);
-            },
-            icon: const Icon(Icons.add_circle),
-          )
+            onPressed: (){
+              controller.removePiatti(product);              },
+            icon:  Icon(Icons.delete),
+          ), //*/
+          //    Text("$quantity"),
         ],
       ),
 
