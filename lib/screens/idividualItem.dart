@@ -4,7 +4,7 @@ import 'package:vogliadifood_app/model/bevande.dart';
 import 'package:vogliadifood_app/model/bevande_api.dart';
 import 'package:vogliadifood_app/model/piatti.dart';
 import 'package:vogliadifood_app/model/piatti_api.dart';
-
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:get/get.dart';
@@ -31,49 +31,18 @@ class IndividualItem extends StatefulWidget {
 class _IndividualItem extends State<IndividualItem> {
   final controller = Get.put(CarelloController());
   late final int index;
-  var arguments = Get.arguments;
+  final arguments = Get.arguments;
 
 
 
-  // //print(arguments);
-  // return Scaffold(
-  // appBar: AppBar(
-  // title: const Text("Vogliadì"),
-  // centerTitle: true,
-  // elevation: 0,
-  // actions: [
-  // Padding(
-  // padding: const EdgeInsets.only(right: 25, top: 9),
-  // child: Obx(
-  // () => InkWell(
-  // onTap: () => Get.to(() => RiepilogoScreen()),
-  // child: badges.Badge(
-  // badgeContent: Text(
-  // "${controller.selectedProducts.length}",
-  // style: TextStyle(color: AppColors.Bianco),
-  // ),
-  // badgeStyle: badges.BadgeStyle(
-  // padding: const EdgeInsets.all(3.10),
-  // ),
-  // showBadge: controller.selectedProducts.length > 0,
-  // position: BadgePosition.topEnd(top: -10, end: 20),
-  // child: const Icon(Icons.shopping_cart_outlined))),
-  // ),
-  // ),
-  // ],
-  // ),
 
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(CarelloController());
     late final int index;
-    var arguments = Get.arguments;
+    final arguments = Get.arguments;
 
-
-    final int selectProduct =controller.selectedProducts.length ;
-    final int selectBevande =controller.selectedBevande.length;
-    final int selectProdotti = selectProduct + selectBevande;
 
     //print(arguments);
     return Scaffold(
@@ -85,17 +54,17 @@ class _IndividualItem extends State<IndividualItem> {
           Padding(
             padding: const EdgeInsets.only(right: 25, top: 9),
             child: Obx(
-              () => InkWell(
+                  () => InkWell(
                   onTap: () => Get.to(() => RiepilogoScreen()),
                   child: badges.Badge(
                       badgeContent: Text(
-                        "$selectProdotti",
-                        style: TextStyle(color: AppColors.Bianco),
+                        "${controller.selectProdotti}",
+                       style: TextStyle(color: AppColors.Bianco),
                       ),
                       badgeStyle: badges.BadgeStyle(
                         padding: const EdgeInsets.all(3.10),
                       ),
-                      showBadge: selectProdotti > 0,
+                      showBadge: controller.selectedProducts.length + controller.selectedBevande.length > 0,
                       position: BadgePosition.topEnd(top: -10, end: 20),
                       child: const Icon(Icons.shopping_cart_outlined))),
             ),

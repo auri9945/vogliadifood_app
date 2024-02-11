@@ -39,6 +39,7 @@ class CarrelloProdotti extends StatelessWidget {
                         ;
                         return CarrelloPiattiItem(
                           controller: controller,
+                          quantity: controller.quantity.toString(),
                           product: product,
                           index: index,
                         );
@@ -51,6 +52,7 @@ class CarrelloProdotti extends StatelessWidget {
                       itemBuilder: (BuildContext context, index) {
                         Bevande product = snapshot.data![index];
                         return CarrelloBevandeiItem(
+                          quantity: controller.quantity.toString(),
                           controller: controller,
                           product: product,
                           index: index,
@@ -75,14 +77,14 @@ class CarrelloProdotti extends StatelessWidget {
 class CarrelloPiattiItem extends StatelessWidget {
   final CarelloController controller;
   final Piatti product;
-
-  // final int quantity;
+  final quantity;
   final int index;
 
-  const CarrelloPiattiItem(
+  CarrelloPiattiItem(
       {Key? key,
       required this.index,
       required this.controller,
+      required this.quantity,
       required this.product})
       : super(key: key);
 
@@ -103,14 +105,6 @@ class CarrelloPiattiItem extends StatelessWidget {
               ),
             ),
           ),
-          // Expanded(child: Text(
-          //   '${product.descrizione}',
-          //   style: TextStyle(
-          //     fontSize: 15,
-          //     color: AppColors.Bianco,
-          //   ),
-          // ),
-          // ),
 
           Expanded(
             child: Text(
@@ -125,11 +119,23 @@ class CarrelloPiattiItem extends StatelessWidget {
 
           IconButton(
             onPressed: () {
-              controller.removePiatti(product);
+              controller.incrementoProduct(false, product);
             },
             icon: Icon(Icons.delete),
           ), //*/
-          //    Text("$quantity"),
+          Text(controller.quantity.toString()),
+          IconButton(
+            onPressed: () {
+              controller.incrementoProduct(true, product);
+            },
+            icon: Icon(Icons.add),
+          ),
+          IconButton(
+            onPressed: () {
+              controller.selectedProducts.remove(product);
+            },
+            icon: Icon(Icons.delete),
+          ),
         ],
       ),
     );
@@ -139,14 +145,14 @@ class CarrelloPiattiItem extends StatelessWidget {
 class CarrelloBevandeiItem extends StatelessWidget {
   final CarelloController controller;
   final Bevande product;
-
-  // final int quantity;
+  final quantity;
   final int index;
 
-  const CarrelloBevandeiItem(
+  CarrelloBevandeiItem(
       {Key? key,
       required this.index,
       required this.controller,
+      required this.quantity,
       required this.product})
       : super(key: key);
 
@@ -167,14 +173,6 @@ class CarrelloBevandeiItem extends StatelessWidget {
               ),
             ),
           ),
-          // Expanded(child: Text(
-          //   '${product.descrizione}',
-          //   style: TextStyle(
-          //     fontSize: 15,
-          //     color: AppColors.Bianco,
-          //   ),
-          // ),
-          // ),
 
           Expanded(
             child: Text(
@@ -189,11 +187,17 @@ class CarrelloBevandeiItem extends StatelessWidget {
 
           IconButton(
             onPressed: () {
-              controller.removBevande(product);
+              controller.incrementoBevande(false);
             },
             icon: Icon(Icons.delete),
-          ), //*/
-          //    Text("$quantity"),
+          ),
+          Text(controller.quantity.toString()),
+          IconButton(
+            onPressed: () {
+             controller.incrementoBevande(true);
+            },
+            icon: Icon(Icons.add),
+          ),
         ],
       ),
     );

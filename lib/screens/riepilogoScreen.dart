@@ -57,6 +57,7 @@ class RiepilogoScreen extends StatelessWidget {
                         Obx(() => Column(
                           children: controller.selectedProducts.map((product) {
                             return CarrelloPiattiItem(
+                              quantity: controller.quantity.toString(),
                               controller: controller,
                               product: product,
                               index: controller.selectedProducts.indexOf(product),
@@ -66,6 +67,7 @@ class RiepilogoScreen extends StatelessWidget {
                         Obx(() => Column(
                           children: controller.selectedBevande.map((product) {
                             return CarrelloBevandeiItem(
+                              quantity: controller.quantity.toString(),
                               controller: controller,
                               product: product,
                               index: controller.selectedBevande.indexOf(product),
