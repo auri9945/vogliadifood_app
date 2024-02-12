@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:get/get_core/src/get_main.dart';
 import 'package:vogliadifood_app/model/ristoranti.dart';
 import 'package:vogliadifood_app/model/ristoranti_api.dart';
@@ -10,6 +12,7 @@ import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
+import '../controller/carello_controller.dart';
 import '../utils/colors.dart';
 import '../widget/CustomNavbar.dart';
 import '../utils/helper.dart';
@@ -27,10 +30,39 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
   var arguments = Get.arguments;
+  final controller = Get.put(CarelloController());
+
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Vogliadì"),
+          centerTitle: true,
+          elevation: 0,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 25, top: 9),
+              child: Obx(
+                    () => InkWell(
+                    onTap: () => Get.to(() => RiepilogoScreen()),
+                    child: badges.Badge(
+                        badgeContent: Text(
+                          "${controller.selectProdotti}",
+                          style: TextStyle(color: AppColors.Bianco),
+                        ),
+                        badgeStyle: badges.BadgeStyle(
+                          padding: const EdgeInsets.all(3.10),
+                        ),
+                        showBadge: controller.selectedProducts.length + controller.selectedBevande.length > 0,
+                        position: BadgePosition.topEnd(top: -10, end: 20),
+                        child: const Icon(Icons.shopping_cart_outlined))),
+              ),
+            ),
+          ],
+        ),
         body: Stack(
       children: [
         SafeArea(
@@ -52,50 +84,17 @@ class _HomeScreen extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+
+                        Container(
+                          width: 500,
+                          height: 250,
+                          child: Image.asset(
+                            Helper.getAssetName("Voglia.jpg", "virtual"),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                         const SizedBox(
                           height: 40,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Benvenuto Marino!",
-                                style: Helper.getTheme(context).displaySmall,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context)
-                                      .pushReplacementNamed(
-                                      RiepilogoScreen.routeName);
-                                },
-                                child: Image.asset(
-                                  Helper.getAssetName(
-                                      "shopping_cart.png", "virtual"),
-                                ),
-
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                          ),
-                          child: Text("Via Roma, 23 - Torino"),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        const SearchBarBox(),
-                        const SizedBox(
-                          height: 20,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -242,7 +241,7 @@ class _HomeScreen extends State<HomeScreen> {
                                             RistorantiPopolari(
                                               image: Image.asset(
                                                 Helper.getAssetName(
-                                                    "spaghettipomodorini.jpg",
+                                                    "food-delivery.jpg",
                                                     "virtual"),
                                                 fit: BoxFit.cover,
                                               ),

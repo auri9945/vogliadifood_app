@@ -6,18 +6,22 @@ import 'package:vogliadifood_app/screens/paymentScreen.dart';
 import 'package:vogliadifood_app/widget/rigaProdotti.dart';
 
 
+import '../model/bevande.dart';
+import '../model/piatti.dart';
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/CustomNavbar.dart';
 import '../widget/carrello_prodotti.dart';
 
 
-class RiepilogoScreen extends StatelessWidget {
-  static const routeName = "/riepilogoScreen";
+class RiepilogoFinaleScreen extends StatelessWidget {
+  static const routeName = "/riepilogoFinaleScreen";
 
-  RiepilogoScreen({Key? key}) : super(key: key);
+
+  RiepilogoFinaleScreen({Key? key}) : super(key: key);
   final controller = Get.put(CarelloController());
   var arguments = Get.arguments;
+
 
 
   @override
@@ -42,33 +46,32 @@ class RiepilogoScreen extends StatelessWidget {
                   ),
                   SingleChildScrollView(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const SizedBox(
                           height: 50,
                         ),
                         Container(
                           child: Text(
-                            "Riepilogo ordine",
+                            "Conferma ordine",
                             style: Helper.getTheme(context).displaySmall,
                           ),
                         ),
                         const SizedBox(height: 50),
                         // Mostra tutti i prodotti selezionati
                         Obx(() => Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: controller.selectedProducts.map((product) {
-                            return CarrelloPiattiItem(
-                              controller: controller,
+                            return CarrelloPiattiRiepilogo(
                               product: product,
-                              index: controller.selectedProducts.indexOf(product),
                             );
                           }).toList(),
                         ),),
                         Obx(() => Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: controller.selectedBevande.map((product) {
-                            return CarrelloBevandeiItem(
-                              controller: controller,
+                            return CarrelloBevandeiRiepilogo(
                               product: product,
-                              index: controller.selectedBevande.indexOf(product),
                             );
                           }).toList(),
                         ),),
@@ -79,7 +82,6 @@ class RiepilogoScreen extends StatelessWidget {
                       child: Obx(() => Container(
                         padding: const EdgeInsets.symmetric(horizontal: 75),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text(
                               "Total:",
@@ -99,10 +101,10 @@ class RiepilogoScreen extends StatelessWidget {
                           child: ElevatedButton(
                             style: const ButtonStyle(),
                             onPressed: () {
-                                Get.toNamed("/paymentScreen");
+                                Get.toNamed("/confermaOrdine");
                               },
                             child: Text(
-                              "Procedi al pagamento",
+                              "Conferma pagamento",
                               style: Helper.getTheme(context).headlineSmall,
                             ),
                           ),
@@ -127,3 +129,89 @@ class RiepilogoScreen extends StatelessWidget {
   }
 }
 
+class CarrelloPiattiRiepilogo extends StatelessWidget {
+  final Piatti product;
+
+  CarrelloPiattiRiepilogo(
+      {Key? key,
+        required this.product})
+      :  super(key: key) {
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(
+              '${product.piatto}',
+              style: TextStyle(
+                fontSize: 20,
+                color: AppColors.Bianco,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          Expanded(
+            child: Text(
+              "${product.prezzo} €",
+              style: TextStyle(
+                fontSize: 15,
+                color: AppColors.Orange,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CarrelloBevandeiRiepilogo extends StatelessWidget {
+  final Bevande product;
+
+  CarrelloBevandeiRiepilogo(
+      {Key? key,
+        required this.product})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(
+              '${product.bevanda}',
+              style: TextStyle(
+                fontSize: 20,
+                color: AppColors.Bianco,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          Expanded(
+            child: Text(
+              '${product.prezzo}€',
+              style: TextStyle(
+                fontSize: 15,
+                color: AppColors.Orange,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+}

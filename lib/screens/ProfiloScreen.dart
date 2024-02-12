@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vogliadifood_app/screens/spashScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 
 import '../utils/helper.dart';
@@ -59,7 +61,7 @@ class ProfiloScreen extends StatelessWidget {
                         ),
                         Container(
                           child: Text(
-                            "Ciao Marino!",
+                            "Ciao!",
                             style: Helper.getTheme(context).displaySmall,
                           ),
                         ),
@@ -70,29 +72,9 @@ class ProfiloScreen extends StatelessWidget {
                           height: 50,
                           width: 200,
                           child: ElevatedButton(
-                            style: const ButtonStyle(),
-                            onPressed: () {},
-                            child: Text(
-                              "Aggiorna profilo",
-                              style: Helper.getTheme(context).headlineSmall,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "or",
-                          style: Helper.getTheme(context).headlineSmall,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox(
-                          height: 50,
-                          width: 200,
-                          child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                             Get.to(SplashScreen());
+                            },
                             child: Text(
                               "Logout",
                               style: Helper.getTheme(context).headlineSmall,

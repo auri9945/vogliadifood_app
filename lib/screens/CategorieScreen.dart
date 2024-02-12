@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:vogliadifood_app/screens/casaScreen.dart';
 import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/fusionScreen.dart';
 import 'package:vogliadifood_app/screens/gourmetScreen.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
 import 'package:vogliadifood_app/screens/mondoScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
 import 'package:vogliadifood_app/screens/veggieScreen.dart';
 import 'package:vogliadifood_app/widget/CustomNavbar.dart';
 import 'package:vogliadifood_app/widget/searchbar.dart';
 
+import '../controller/carello_controller.dart';
 import '../utils/colors.dart';
 import '../utils/helper.dart';
 import '../widget/categorieVoglia.dart';
@@ -19,11 +23,40 @@ import '../widget/categorieVoglia.dart';
 class CategorieScreen extends StatelessWidget {
   static const routeName = "/categorieScreen";
 
-  const CategorieScreen({super.key});
+  CategorieScreen({super.key});
+
+  final controller = Get.put(CarelloController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Categorie"),
+        centerTitle: true,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 25, top: 9),
+            child: Obx(
+              () => InkWell(
+                  onTap: () => Get.to(() => RiepilogoScreen()),
+                  child: badges.Badge(
+                      badgeContent: Text(
+                        "${controller.selectProdotti}",
+                        style: TextStyle(color: AppColors.Bianco),
+                      ),
+                      badgeStyle: badges.BadgeStyle(
+                        padding: const EdgeInsets.all(3.10),
+                      ),
+                      showBadge: controller.selectedProducts.length +
+                              controller.selectedBevande.length >
+                          0,
+                      position: BadgePosition.topEnd(top: -10, end: 20),
+                      child: const Icon(Icons.shopping_cart_outlined))),
+            ),
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -41,43 +74,7 @@ class CategorieScreen extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                            ),
-                            child: const Icon(
-                              Icons.arrow_back_ios_rounded,
-                              color: AppColors.Bianco,
-                            ),
-                          ),
-                          Text(
-                            "Categorie",
-                            style: Helper.getTheme(context).titleLarge,
-                          ),
-                          Image.asset(
-                            Helper.getAssetName("shopping_cart.png", "virtual"),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const SearchBarBox(),
-                    const SizedBox(
+                    SizedBox(
                       height: 30,
                     ),
                     Padding(

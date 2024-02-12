@@ -16,12 +16,14 @@ class Piatti {
   String descrizione;
   String prezzo;
 
+
   Piatti({
     required this.id,
     required this.ristoranteId,
     required this.piatto,
     required this.descrizione,
     required this.prezzo,
+
   });
 
   factory Piatti.fromMap(Map<String, dynamic> json) => Piatti(
@@ -30,6 +32,7 @@ class Piatti {
     piatto: json["piatto"],
     descrizione: json["descrizione"],
     prezzo: json["prezzo"],
+
   );
 
   Map<String, dynamic> toMap() => {
@@ -38,5 +41,6 @@ class Piatti {
     "piatto": piatto,
     "descrizione": descrizione,
     "prezzo": prezzo,
+
   };
 }

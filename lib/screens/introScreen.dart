@@ -20,12 +20,8 @@ class IntroScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               height: double.infinity,
-              // padding: const EdgeInsets.symmetric(
-              //   horizontal: 20,
-              //   vertical: 30,
-              // ),
               child: Image.asset(
-                Helper.getAssetName("sfondo_intro.png", "virtual"),
+                Helper.getAssetName("sfondo_app.png", "virtual"),
                 fit: BoxFit.fill,
               ),
             ),
@@ -38,11 +34,21 @@ class IntroScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 500,
+                      height: 250,
+                    ),
+                    Image.asset(
+                      Helper.getAssetName("icona_rossa_elisse.png", "virtual")
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      "BENVENUTO IN VOGLIADì",
+                      style: Helper.getTheme(context).headline6,
                     ),
                     Text(
                       "Inizia ora a soddisfare le tue Vogliedì...",
-                      style: Helper.getTheme(context).headlineSmall,
+                      style: Helper.getTheme(context).headline5,
                     ),
                     const SizedBox(
                       height: 30,

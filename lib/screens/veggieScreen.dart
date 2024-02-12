@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
+import '../controller/carello_controller.dart';
 import '../model/ristoranti.dart';
 import '../model/ristoranti_api.dart';
 import '../utils/helper.dart';
@@ -22,10 +26,36 @@ class VeggieScreen extends StatefulWidget {
 class _VeggieScreen extends State<VeggieScreen> {
   var arguments = Get.arguments;
   var categoriaRistorante = "veggie";
+  final controller = Get.put(CarelloController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Vogliadì Veggie"),
+        centerTitle: true,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 25, top: 9),
+            child: Obx(
+                  () => InkWell(
+                  onTap: () => Get.to(() => RiepilogoScreen()),
+                  child: badges.Badge(
+                      badgeContent: Text(
+                        "${controller.selectProdotti}",
+                        style: TextStyle(color: AppColors.Bianco),
+                      ),
+                      badgeStyle: badges.BadgeStyle(
+                        padding: const EdgeInsets.all(3.10),
+                      ),
+                      showBadge: controller.selectedProducts.length + controller.selectedBevande.length > 0,
+                      position: BadgePosition.topEnd(top: -10, end: 20),
+                      child: const Icon(Icons.shopping_cart_outlined))),
+            ),
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -46,42 +76,7 @@ class _VeggieScreen extends State<VeggieScreen> {
                     SingleChildScrollView(
                       child: Column(
                         children: [
-                          Container(
-                            padding: const EdgeInsets.only(top: 30),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                              ),
-                              child: Row(
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.transparent,
-                                    ),
-                                    child: const Icon(
-                                      Icons.arrow_back_ios_rounded,
-                                      color: AppColors.Bianco,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Categorie",
-                                      style:
-                                          Helper.getTheme(context).titleLarge,
-                                    ),
-                                  ),
-                                  Image.asset(
-                                    Helper.getAssetName(
-                                        "shopping_cart.png", "virtual"),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20,
                           ),
                           SizedBox(

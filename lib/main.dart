@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vogliadifood_app/screens/ConfermaOrdine.dart';
 //import 'package:hive/hive.dart';
 //import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:hive_flutter/adapters.dart';
@@ -8,6 +9,7 @@ import 'package:vogliadifood_app/screens/dolciScreen.dart';
 import 'package:vogliadifood_app/screens/idividualItem.dart';
 import 'package:vogliadifood_app/screens/mareScreen.dart';
 import 'package:vogliadifood_app/screens/paymentScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoFinaleScreen.dart';
 import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/screens/salutareScreen.dart';
 import 'package:vogliadifood_app/screens/schifezzeScreen.dart';
@@ -77,7 +79,7 @@ class MyApp extends StatelessWidget {
       // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // useMaterial3: true,
 
-      home: HomeScreen(),
+      home: SplashScreen(),
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),
@@ -98,6 +100,8 @@ class MyApp extends StatelessWidget {
         ProfiloScreen.routeName: (context) => ProfiloScreen(),
         RiepilogoScreen.routeName: (context) => RiepilogoScreen(),
         PaymentScreen.routeName: (context) => PaymentScreen(),
+        RiepilogoFinaleScreen.routeName: (context) => RiepilogoFinaleScreen(),
+        ConfermaScreen.routeName: (context) => ConfermaScreen(),
         // NotificationScreen.routeName: (context) => NotificationScreen(),
         // AboutScreen.routeName: (context) => AboutScreen(),
         // InboxScreen.routeName: (context) => InboxScreen(),

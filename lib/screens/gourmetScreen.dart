@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:vogliadifood_app/screens/CategorieScreen.dart';
+import 'package:vogliadifood_app/screens/riepilogoScreen.dart';
 import 'package:vogliadifood_app/utils/colors.dart';
 import 'package:vogliadifood_app/widget/ListaRistorantiCategorie.dart';
 
+import '../controller/carello_controller.dart';
 import '../model/ristoranti.dart';
 import '../model/ristoranti_api.dart';
 import '../utils/helper.dart';
@@ -21,10 +25,36 @@ class GourmetScreen extends StatefulWidget {
 class _GourmetScreen extends State<GourmetScreen> {
   var arguments = Get.arguments;
   var categoriaRistorante = "gourmet";
+  final controller = Get.put(CarelloController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Vogliadì Gourmet"),
+        centerTitle: true,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 25, top: 9),
+            child: Obx(
+                  () => InkWell(
+                  onTap: () => Get.to(() => RiepilogoScreen()),
+                  child: badges.Badge(
+                      badgeContent: Text(
+                        "${controller.selectProdotti}",
+                        style: TextStyle(color: AppColors.Bianco),
+                      ),
+                      badgeStyle: badges.BadgeStyle(
+                        padding: const EdgeInsets.all(3.10),
+                      ),
+                      showBadge: controller.selectedProducts.length + controller.selectedBevande.length > 0,
+                      position: BadgePosition.topEnd(top: -10, end: 20),
+                      child: const Icon(Icons.shopping_cart_outlined))),
+            ),
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
